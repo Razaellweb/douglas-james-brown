@@ -26,7 +26,7 @@ const Navbar = () => {
     { name: "Books", href: "#books", icon: BookOpen, isAnchor: true },
     { name: "About", href: "#about", icon: User, isAnchor: true },
     { name: "Praise", href: "#praise", icon: MessageSquareQuote, isAnchor: true },
-    { name: "Shop", href: "/shop", icon: ShoppingBag, isAnchor: false },
+    { name: "Shop", href: "#books", icon: ShoppingBag, isAnchor: true },
     { name: "Contact", href: "#contact", icon: Mail, isAnchor: true },
   ];
 
@@ -110,7 +110,7 @@ const Navbar = () => {
                 className="relative p-2 text-foreground/80 hover:text-foreground transition-colors group"
                 aria-label="Shopping cart"
               >
-                <ShoppingBag className="w-6 h-6" />
+                {/* <ShoppingBag className="w-6 h-6" /> */}
                 {itemCount > 0 && (
                   <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center text-xs bg-accent text-accent-foreground">
                     {itemCount}
