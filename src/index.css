@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Douglas James Brown — New England Gothic Design System
+   Dark, moody base with bold yellow/gold accents.
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Douglas James Brown Brand Colors — Gothic Yellow/Gold */
+    --background: 220 15% 5%;
+    --foreground: 45 20% 88%;
+
+    --card: 220 14% 8%;
+    --card-foreground: 45 20% 88%;
+
+    --popover: 220 15% 5%;
+    --popover-foreground: 45 20% 88%;
+
+    /* Bold Yellow primary */
+    --primary: 48 92% 52%;
+    --primary-foreground: 220 15% 5%;
+
+    /* Muted warm gold secondary */
+    --secondary: 38 45% 30%;
+    --secondary-foreground: 45 20% 88%;
+
+    /* Dark muted */
+    --muted: 220 10% 15%;
+    --muted-foreground: 40 15% 55%;
+
+    /* Bright yellow accent */
+    --accent: 50 95% 58%;
+    --accent-foreground: 220 15% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 15% 20%;
+    --input: 220 10% 15%;
+    --ring: 48 92% 52%;
+
+    --radius: 0.5rem;
+
+    /* Gradients */
+    --gradient-gothic: linear-gradient(135deg, hsl(48 92% 52%), hsl(38 70% 40%));
+    --gradient-peacock: linear-gradient(135deg, hsl(48 92% 52%), hsl(38 70% 40%));
+    /* alias for legacy pages */
+    --gradient-gold: linear-gradient(135deg, hsl(50 95% 58%), hsl(40 85% 45%));
+    --gradient-mystical: linear-gradient(180deg, hsl(220 15% 5% / 0.8), hsl(220 14% 8%));
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(48 92% 52% / 0.25);
+    --shadow-gold: 0 10px 50px hsl(50 95% 58% / 0.15);
+    --shadow-deep: 0 20px 60px hsl(220 15% 0% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
