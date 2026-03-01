@@ -1,4 +1,4 @@
-import { Quote, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 interface Blurb {
@@ -35,7 +35,7 @@ const editorialBlurbs: Blurb[] = [
 
 const EditorialPraise = () => {
   return (
-    <section id="praise" className="relative py-24 px-6 overflow-hidden">
+    <section id="acclaim" className="relative py-24 px-6 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
       <div className="absolute inset-0">
@@ -52,7 +52,7 @@ const EditorialPraise = () => {
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-primary to-transparent" />
           </div>
           <h2 className="font-cinzel text-4xl md:text-6xl font-bold text-foreground">
-            Critical <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Praise</span>
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Acclaim</span>
           </h2>
           <p className="font-cormorant text-xl text-muted-foreground max-w-2xl mx-auto italic">
             What literary voices are saying about Doug Brown's fiction
@@ -67,10 +67,7 @@ const EditorialPraise = () => {
               className="relative p-8 bg-gradient-to-br from-card via-card to-secondary/5 border-accent/15 shadow-deep group hover:shadow-glow hover:border-primary/30 transition-all duration-500 animate-fade-in"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              {/* Decorative quote mark */}
-              <div className="absolute top-4 right-4 text-accent/15">
-                <Quote className="w-12 h-12" />
-              </div>
+
 
               <div className="relative z-10 space-y-6">
                 <p className="font-cormorant text-lg text-foreground/90 leading-relaxed italic">

@@ -23,10 +23,11 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
 
   const navLinks = [
-    { name: "Books", href: "#books", icon: BookOpen, isAnchor: true },
     { name: "About", href: "#about", icon: User, isAnchor: true },
-    { name: "Praise", href: "#praise", icon: MessageSquareQuote, isAnchor: true },
-    { name: "Shop", href: "#books", icon: ShoppingBag, isAnchor: true },
+    { name: "Bookstore", href: "#bookstore", icon: BookOpen, isAnchor: true },
+    { name: "First Appearances", href: "#first-appearances", icon: BookOpen, isAnchor: true },
+    { name: "Acclaim", href: "#acclaim", icon: MessageSquareQuote, isAnchor: true },
+    { name: "Liner Notes", href: "#liner-notes", icon: ShoppingBag, isAnchor: true },
     { name: "Contact", href: "#contact", icon: Mail, isAnchor: true },
   ];
 
@@ -69,7 +70,7 @@ const Navbar = () => {
                   DOUG BROWN
                 </div>
                 <div className="font-cormorant text-xs text-muted-foreground italic">
-                  Fiction Writer
+                  Writer of Rarified Fiction
                 </div>
               </div>
             </Link>

@@ -1,18 +1,24 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import BookShowcase from "@/components/BookShowcase";
-import EditorialPraise from "@/components/EditorialPraise";
 import About from "@/components/About";
+import FirstAppearances from "@/components/FirstAppearances";
+import EditorialPraise from "@/components/EditorialPraise";
+import LinerNotes from "@/components/LinerNotes";
 import Footer from "@/components/Footer";
+import FloatingBlurbs from "@/components/FloatingBlurbs";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background relative">
+      <FloatingBlurbs />
       <Navbar />
       <Hero />
-      <BookShowcase />
       <About />
+      <BookShowcase />
+      <FirstAppearances />
       <EditorialPraise />
+      <LinerNotes />
       <Footer />
     </main>
   );

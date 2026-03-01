@@ -6,7 +6,7 @@ import { books } from "@/data/books";
 
 const BookShowcase = () => {
   return (
-    <section id="books" className="relative py-32 px-6 overflow-hidden">
+    <section id="bookstore" className="relative py-32 px-6 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary/10 via-background to-background" />
       <div className="absolute inset-0 opacity-[0.02]" style={{
@@ -42,13 +42,24 @@ const BookShowcase = () => {
               className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-700 hover:shadow-deep hover:-translate-y-2 animate-fade-in"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              {/* Badge */}
-              <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 bg-accent/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-gold">
-                <Award className="w-3.5 h-3.5 text-primary-foreground" />
-                <span className="font-cinzel text-xs font-bold text-primary-foreground">
-                  {book.badge}
-                </span>
-              </div>
+              {/* Badge — floats above the card, not the cover */}
+              {book.badge === "New Release" ? (
+                <div className="absolute -top-3 -right-3 z-30">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-accent blur-md opacity-60 rounded-lg" />
+                    <div className="relative bg-accent text-primary-foreground font-cinzel text-xs font-bold px-3 py-1.5 rounded-lg shadow-gold border border-accent/50 tracking-widest uppercase">
+                      ✦ New Release ✦
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-deep">
+                  <Award className="w-3.5 h-3.5 text-primary-foreground" />
+                  <span className="font-cinzel text-xs font-bold text-primary-foreground">
+                    {book.badge}
+                  </span>
+                </div>
+              )}
 
               <div className="relative aspect-[2/3] overflow-hidden bg-muted/20">
                 <img 

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, BookOpenText } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   const scrollToBooks = () => {
@@ -23,13 +23,7 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
       </div>
 
-      {/* Decorative book elements */}
-      <div className="absolute top-32 left-10 opacity-15 animate-float">
-        <BookOpenText className="w-16 h-16 text-primary" />
-      </div>
-      <div className="absolute bottom-40 right-20 opacity-15 animate-float" style={{ animationDelay: '3s' }}>
-        <BookOpenText className="w-20 h-20 text-accent" />
-      </div>
+
 
       <div className="container relative z-10 px-6 py-32 mx-auto">
         <div className="max-w-5xl mx-auto text-center space-y-10 animate-fade-in">

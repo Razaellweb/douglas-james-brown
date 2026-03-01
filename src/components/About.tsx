@@ -1,4 +1,7 @@
-import { BookMarked, GraduationCap, Award } from "lucide-react";
+import { BookMarked, GraduationCap, Award, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import authorImg from "../assets/douglas.jpg";
+
 
 const About = () => {
   return (
@@ -12,19 +15,34 @@ const About = () => {
 
       <div className="container relative z-10 mx-auto max-w-6xl">
         <div className="space-y-16 animate-fade-in">
-          <div className="text-center space-y-6">
-            <div className="flex items-center justify-center mb-8">
-              <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
-              <div className="mx-6 relative">
-                <div className="absolute inset-0 bg-primary blur-lg opacity-30" />
-                <BookMarked className="relative w-6 h-6 text-primary" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Author Image */}
+            <div className="relative group mx-auto lg:mx-0">
+              <div className="absolute -inset-4 bg-gradient-gothic blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
+              <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-primary/20 shadow-deep">
+                <img 
+                  src={authorImg} 
+                  alt="Douglas James Brown" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
               </div>
-              <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
             </div>
-            
-            <h2 className="font-cinzel text-5xl md:text-7xl font-bold">
-              About <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">the Author</span>
-            </h2>
+
+            <div className="text-center lg:text-left space-y-6">
+              <div className="flex items-center justify-center lg:justify-start mb-8">
+                <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent lg:hidden" />
+                <div className="mx-6 relative">
+                  <div className="absolute inset-0 bg-primary blur-lg opacity-30" />
+                  <BookMarked className="relative w-6 h-6 text-primary" />
+                </div>
+                <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
+              </div>
+              
+              <h2 className="font-cinzel text-5xl md:text-7xl font-bold">
+                About <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">the Author</span>
+              </h2>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -37,6 +55,20 @@ const About = () => {
                 renewed purpose, he has returned with a voice that critics call bracing, tactile, 
                 and utterly distinctive.
               </p>
+
+              {/* Amazon Author Page Link */}
+              <div className="pt-4">
+                <a
+                  href="http://amazon.com/author/doug.brown.fiction"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="font-cinzel bg-gradient-gothic hover:shadow-glow transition-all duration-300 text-primary-foreground border-0 gap-2">
+                    <ExternalLink className="w-4 h-4" />
+                    Amazon Author Page
+                  </Button>
+                </a>
+              </div>
 
               <p className="text-xl">
                 Educated at <span className="text-accent font-semibold">Carnegie Mellon</span> and{" "}

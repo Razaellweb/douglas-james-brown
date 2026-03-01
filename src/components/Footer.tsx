@@ -3,18 +3,6 @@ import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NewsletterModal from "./NewsletterModal";
 
-// Custom X (Twitter) icon component
-const XIcon = ({ className }: { className?: string }) => (
-  <svg 
-    viewBox="0 0 24 24" 
-    className={className}
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-  </svg>
-);
-
 // Amazon icon component
 const AmazonIcon = ({ className }: { className?: string }) => (
   <svg
@@ -51,28 +39,23 @@ const Footer = () => {
             <h4 className="font-cinzel text-lg font-semibold text-foreground">Quick Links</h4>
             <ul className="space-y-2 font-cormorant">
               <li>
-                <a href="#books" className="text-muted-foreground hover:text-primary transition-colors">
-                  Books
-                </a>
-              </li>
-              <li>
                 <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="#praise" className="text-muted-foreground hover:text-primary transition-colors">
-                  Critical Praise
+                <a href="#bookstore" className="text-muted-foreground hover:text-primary transition-colors">
+                  Bookstore
                 </a>
               </li>
               <li>
-                <a 
-                  href="http://amazon.com/author/doug.brown.fiction" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Amazon Author Page
+                <a href="#acclaim" className="text-muted-foreground hover:text-primary transition-colors">
+                  Acclaim
+                </a>
+              </li>
+              <li>
+                <a href="#liner-notes" className="text-muted-foreground hover:text-primary transition-colors">
+                  Liner Notes
                 </a>
               </li>
             </ul>
@@ -107,16 +90,7 @@ const Footer = () => {
               <AmazonIcon className="w-5 h-5" />
             </a>
             <a 
-              href="https://x.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-muted/30 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all duration-300"
-              aria-label="X (Twitter)"
-            >
-              <XIcon className="w-5 h-5" />
-            </a>
-            <a 
-              href="mailto:contact@dougbrown.com"
+              href="mailto:doug.brown.fiction@gmail.com"
               className="w-10 h-10 rounded-full bg-muted/30 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all duration-300"
               aria-label="Email"
             >
