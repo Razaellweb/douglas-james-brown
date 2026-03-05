@@ -1,16 +1,25 @@
-const allCredits = [
-  { title: "Cats", publication: "Half And One", url: "https://halfandone.com/cats/", year: "2023" },
-  { title: "Dammit", publication: "BarBar", url: "https://www.bebarbar.com/blog/dammit", year: "2023" },
-  { title: "Three Birds On A Wire", publication: "Half And One", url: "https://halfandone.com/three-birds-on-a-wire/", year: "2023" },
-  { title: "McCutcheon Crazy", publication: "Half And One", url: "https://halfandone.com/mccutcheon-crazy/", year: "2023" },
-  { title: "Rain Drops", publication: "Half And One", url: "https://halfandone.com/rain-drops/", year: "2023" },
-  { title: "Ruskin's Mulch", publication: "BarBar", url: "https://www.bebarbar.com/blog/ruskins-mulch", year: "2023" },
+interface CreditEntry {
+  title: string;
+  publication: string;
+  publisher?: string;
+  url: string;
+  date?: string;
+  year?: string;
+}
+
+const allCredits: CreditEntry[] = [
+  { title: "Cats", publication: "Half And One", url: "https://halfandone.com/cats/", date: "1/17/2023" },
+  { title: "Dammit", publication: "BarBar", url: "https://www.bebarbar.com/blog/dammit", date: "1/29/2023" },
+  { title: "Three Birds On A Wire", publication: "Half And One", url: "https://halfandone.com/three-birds-on-a-wire/", date: "4/18/2023" },
+  { title: "Ruskin's Mulch", publication: "BarBar", url: "https://www.bebarbar.com/blog/ruskins-mulch", date: "6/3/2023" },
+  { title: "McCutcheon Crazy", publication: "Half And One", url: "https://halfandone.com/mccutcheon-crazy/", date: "6/6/2023" },
+  { title: "Rain Drops", publication: "Half And One", url: "https://halfandone.com/rain-drops/", date: "6/23/2023" },
+  { title: "Siobhan's Gathering", publication: "Solid Food Press Literary Journal", url: "https://www.solidfoodpress.com/post/siobhan-s-gathering", date: "4/2/2024" },
+  { title: "Strange", publication: "Half and One", url: "https://halfandone.com/strange/", date: "4/5/2024" },
+  { title: "Pawns", publication: "Half and One", url: "https://halfandone.com/pawns/", date: "5/2/2024" },
   { title: "Stalking Old Moses Wharton", publication: "24 Tales: More Appalachian Ghost Stories, Legends & Mysteries", publisher: "Howling Hills Publishing", url: "https://www.howlinghillspublishing.com/product/24-tales-more-appalachian-ghost-stories-legends-mysteries/12", date: "6/17/2024" },
-  { title: "GladFind", publication: "The Pink Hydra", url: "https://www.thepinkhydra.com/issues/0101202407/gladfind/", date: "1/1/2024" },
-  { title: "Pawns", publication: "Half and One", url: "https://halfandone.com/pawns/", year: "2025" },
-  { title: "Siobhan's Gathering", publication: "Solid Food Press Literary Journal", url: "https://www.solidfoodpress.com/post/siobhan-s-gathering", year: "2025" },
-  { title: "Spitfire", publication: "Half and One", url: "https://halfandone.com/spitfire/", year: "2025" },
-  { title: "Strange", publication: "Half and One", url: "https://halfandone.com/strange/", year: "2025" },
+  { title: "GladFind", publication: "The Pink Hydra", url: "https://www.thepinkhydra.com/issues/0101202407/gladfind/", date: "7/5/2024" },
+  { title: "Spitfire", publication: "Half and One", url: "https://halfandone.com/spitfire/", date: "12/3/2024" },
 ];
 
 interface CreditEntry {
@@ -67,7 +76,7 @@ const FirstAppearances = () => {
                   <span className="underline">{entry.publication}</span>
                 </a>
                 {entry.publisher && <span>, {entry.publisher}</span>}
-                <span className="text-foreground/70">, {entry.date || entry.year}</span>
+                <span className="text-foreground/70">, {entry.date}</span>
               </li>
             ))}
           </ul>
