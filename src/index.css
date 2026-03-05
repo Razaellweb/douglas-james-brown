@@ -9,6 +9,7 @@
 
 @layer base {
   :root {
+    color-scheme: dark;
     /* Douglas James Brown Brand Colors — Gothic Yellow/Gold */
     --background: 220 15% 5%;
     --foreground: 45 20% 88%;
