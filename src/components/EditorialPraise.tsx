@@ -54,7 +54,7 @@ const EditorialPraise = () => {
           <h2 className="font-cinzel text-4xl md:text-6xl font-bold text-foreground">
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Acclaim</span>
           </h2>
-          <p className="font-cormorant text-xl text-muted-foreground max-w-2xl mx-auto italic">
+          <p className="font-cormorant text-2xl text-foreground/90 max-w-2xl mx-auto italic font-medium">
             What literary voices are saying about Doug Brown's fiction
           </p>
         </div>
@@ -100,8 +100,50 @@ const EditorialPraise = () => {
           ))}
         </div>
 
+        {/* Awards */}
+        <div className="mt-24 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: "450ms" }}>
+          <div className="flex items-center gap-4 mb-10">
+            <h3 className="font-cinzel text-3xl font-bold text-foreground">Awards & Honors</h3>
+            <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            <Card className="p-6 bg-card/40 border-border/50 backdrop-blur-sm group hover:border-primary/40 transition-colors flex items-start gap-4">
+              <div className="mt-1">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Star className="w-5 h-5 text-primary group-hover:fill-primary/20 transition-all" />
+                </div>
+              </div>
+              <div>
+                <p className="font-cormorant text-lg text-foreground/90 mb-1">
+                  2023, <span className="italic">"Cats"</span>
+                </p>
+                <p className="font-cinzel text-accent font-bold">
+                  Half and One Khasi Hills Award for Fiction Shortlist
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-card/40 border-border/50 backdrop-blur-sm group hover:border-primary/40 transition-colors flex items-start gap-4">
+              <div className="mt-1">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Star className="w-5 h-5 text-primary group-hover:fill-primary/20 transition-all" />
+                </div>
+              </div>
+              <div>
+                <p className="font-cormorant text-lg text-foreground/90 mb-1">
+                  2022, <span className="italic">"Wendy Wafers Tart and Tangy"</span>
+                </p>
+                <p className="font-cinzel text-accent font-bold">
+                  Globe Soup Open Short Story Honorable Mention
+                </p>
+              </div>
+            </Card>
+          </div>
+        </div>
+
         {/* Amazon link */}
-        <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: "500ms" }}>
+        <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: "500ms" }}>
           <a
             href="http://amazon.com/author/doug.brown.fiction"
             target="_blank"

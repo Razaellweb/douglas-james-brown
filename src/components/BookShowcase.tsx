@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Award } from "lucide-react";
+import { Sparkles, Award, Headphones, BookOpen, ExternalLink } from "lucide-react";
 import { books } from "@/data/books";
+import talesCover from "../assets/24tales.jpeg";
+import halfAndOneCover from "../assets/halfandone.jpg";
 
 const BookShowcase = () => {
   return (
@@ -99,7 +101,7 @@ const BookShowcase = () => {
                     {book.category}
                   </span>
                   <span 
-                    className="font-cinzel text-sm text-muted-foreground/50 font-semibold flex items-center gap-1 cursor-default"
+                    className="font-cinzel text-sm text-muted-foreground/90 font-semibold flex items-center gap-1 cursor-default"
                   >
                     Explore <span className="text-xs">→</span>
                   </span>
@@ -107,6 +109,112 @@ const BookShowcase = () => {
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* Anthologies */}
+        <div className="mt-32 max-w-5xl mx-auto animate-fade-in" style={{ animationDelay: '300ms' }}>
+          <div className="flex items-center gap-4 mb-10">
+            <h3 className="font-cinzel text-3xl font-bold text-foreground">Anthology Contributions</h3>
+            <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <Card className="flex flex-col sm:flex-row p-6 bg-card/40 border-border/50 backdrop-blur-sm hover:border-primary/40 transition-colors">
+              <div className="w-full sm:w-1/3 shrink-0 mb-6 sm:mb-0 sm:mr-6">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-md bg-muted/20 border border-border/50 shadow-sm">
+                  <img 
+                    src={talesCover} 
+                    alt="24 Tales Anthology Cover"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+              </div>
+              <div className="flex-1 flex flex-col space-y-3 justify-center">
+                <div className="inline-flex max-w-fit items-center gap-1.5 px-2.5 py-1 rounded-md bg-muted text-muted-foreground text-xs font-cinzel font-bold uppercase tracking-wider mb-2">
+                  <BookOpen className="w-3 h-3" /> Anthology
+                </div>
+                <h4 className="font-cinzel text-xl font-bold">24 Tales: More Appalachian Ghost Stories, Legends & Mysteries</h4>
+                <p className="font-cormorant text-foreground/80">
+                  Featuring the story <span className="italic">"The Stalking of Old Moses Wharton"</span>
+                </p>
+                <div className="pt-4 mt-auto">
+                  <a href="https://www.howlinghillspublishing.com/product/24-tales-more-appalachian-ghost-stories-legends-mysteries/12?cs=true&cst=custom" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-cormorant text-primary hover:text-accent transition-colors font-semibold">
+                    View on Howling Hills <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="flex flex-col sm:flex-row p-6 bg-card/40 border-border/50 backdrop-blur-sm hover:border-accent/40 transition-colors">
+              <div className="w-full sm:w-1/3 shrink-0 mb-6 sm:mb-0 sm:mr-6">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-md bg-muted/20 border border-border/50 shadow-sm">
+                  <img 
+                    src={halfAndOneCover} 
+                    alt="Half And One Magazine Cover"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+              </div>
+              <div className="flex-1 flex flex-col space-y-3 justify-center">
+                <div className="inline-flex max-w-fit items-center gap-1.5 px-2.5 py-1 rounded-md bg-muted text-muted-foreground text-xs font-cinzel font-bold uppercase tracking-wider mb-2">
+                  <BookOpen className="w-3 h-3" /> Literary Magazine
+                </div>
+                <h4 className="font-cinzel text-xl font-bold">Half And One Magazine</h4>
+                <p className="font-cormorant text-foreground/80">
+                  Vol 1, Issue 3
+                </p>
+                <div className="pt-4 mt-auto">
+                  <a href="https://halfandone.com/wp-content/uploads/2025/10/Half-And-One-Magazine-Vol1-Iss3.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-cormorant text-primary hover:text-accent transition-colors font-semibold">
+                    Read Issue PDF <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+
+        {/* Audio Recordings */}
+        <div className="mt-24 max-w-5xl mx-auto animate-fade-in" style={{ animationDelay: '450ms' }}>
+          <div className="flex items-center gap-4 mb-10">
+            <h3 className="font-cinzel text-3xl font-bold text-foreground">Audio Recordings</h3>
+            <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
+          </div>
+
+          <div className="space-y-6">
+            <Card className="p-6 bg-gradient-to-r from-muted/30 to-transparent border-l-4 border-l-primary/60 border-y-0 border-r-0 rounded-r-xl rounded-l-none">
+              <div className="flex items-start gap-4">
+                <div className="mt-1 p-2 bg-primary/10 rounded-full">
+                  <Headphones className="w-5 h-5 text-primary" />
+                </div>
+                <div className="space-y-2 font-cormorant text-lg">
+                  <p className="text-foreground/90 leading-relaxed">
+                    Brown, Doug. "My Bohemian Baptism." <span className="italic">Short Story Today</span>, February 7, 2024, Podcast audio, 
+                    <a href="https://shortstorytoday.com/search?s=83" target="_blank" rel="noopener noreferrer" className="mx-1 text-accent hover:underline">https://shortstorytoday.com/search?s=83</a>.
+                  </p>
+                  <p className="text-sm text-foreground/80 font-sans">
+                    Episode 83 — featuring a reading of the title story from the debut collection.
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-gradient-to-r from-muted/30 to-transparent border-l-4 border-l-accent/60 border-y-0 border-r-0 rounded-r-xl rounded-l-none">
+              <div className="flex items-start gap-4">
+                <div className="mt-1 p-2 bg-accent/10 rounded-full">
+                  <Headphones className="w-5 h-5 text-accent" />
+                </div>
+                <div className="space-y-2 font-cormorant text-lg">
+                  <p className="text-foreground/90 leading-relaxed">
+                    Baker, Dan. "Dammit." Dan Baker, December 8, 2024. Audio recording, 
+                    <a href="https://jumpshare.com/share/kPCaL0YH2c7oAfgNGKNH" target="_blank" rel="noopener noreferrer" className="mx-1 text-primary hover:underline">https://jumpshare.com/share/kPCaL0YH2c7oAfgNGKNH</a>.
+                  </p>
+                  <p className="text-sm text-foreground/80 font-sans">
+                    Voice credit to Dan Baker.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
 
         {/* Author description */}

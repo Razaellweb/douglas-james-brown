@@ -1,46 +1,26 @@
-const book1Credits = [
-  { title: "Cats", publication: "Half And One", url: "https://halfandone.com/cats/" },
-  { title: "Dammit", publication: "BarBar", url: "https://www.bebarbar.com/blog/dammit" },
-  { title: "Three Birds On A Wire", publication: "Half And One", url: "https://halfandone.com/three-birds-on-a-wire/" },
-  { title: "McCutcheon Crazy", publication: "Half And One", url: "https://halfandone.com/mccutcheon-crazy/" },
-  { title: "Rain Drops", publication: "Half And One", url: "https://halfandone.com/rain-drops/" },
-  { title: "Ruskin's Mulch", publication: "BarBar", url: "https://www.bebarbar.com/blog/ruskins-mulch" },
-];
-
-const book2Credits = [
-  { title: "GladFind", publication: "The Pink Hydra", url: "https://www.thepinkhydra.com/issues/0101202407/gladfind/" },
-  { title: "Pawns", publication: "Half and One", url: "https://halfandone.com/pawns/" },
-  { title: "Siobhan's Gathering", publication: "Solid Food Press Literary Journal", url: "https://www.solidfoodpress.com/post/siobhan-s-gathering" },
-  { title: "Spitfire", publication: "Half and One", url: "https://halfandone.com/spitfire/" },
-  { title: "Strange", publication: "Half and One", url: "https://halfandone.com/strange/" },
+const allCredits = [
+  { title: "Cats", publication: "Half And One", url: "https://halfandone.com/cats/", year: "2023" },
+  { title: "Dammit", publication: "BarBar", url: "https://www.bebarbar.com/blog/dammit", year: "2023" },
+  { title: "Three Birds On A Wire", publication: "Half And One", url: "https://halfandone.com/three-birds-on-a-wire/", year: "2023" },
+  { title: "McCutcheon Crazy", publication: "Half And One", url: "https://halfandone.com/mccutcheon-crazy/", year: "2023" },
+  { title: "Rain Drops", publication: "Half And One", url: "https://halfandone.com/rain-drops/", year: "2023" },
+  { title: "Ruskin's Mulch", publication: "BarBar", url: "https://www.bebarbar.com/blog/ruskins-mulch", year: "2023" },
+  { title: "Stalking Old Moses Wharton", publication: "24 Tales: More Appalachian Ghost Stories, Legends & Mysteries", publisher: "Howling Hills Publishing", url: "https://www.howlinghillspublishing.com/product/24-tales-more-appalachian-ghost-stories-legends-mysteries/12", date: "6/17/2024" },
+  { title: "GladFind", publication: "The Pink Hydra", url: "https://www.thepinkhydra.com/issues/0101202407/gladfind/", date: "1/1/2024" },
+  { title: "Pawns", publication: "Half and One", url: "https://halfandone.com/pawns/", year: "2025" },
+  { title: "Siobhan's Gathering", publication: "Solid Food Press Literary Journal", url: "https://www.solidfoodpress.com/post/siobhan-s-gathering", year: "2025" },
+  { title: "Spitfire", publication: "Half and One", url: "https://halfandone.com/spitfire/", year: "2025" },
+  { title: "Strange", publication: "Half and One", url: "https://halfandone.com/strange/", year: "2025" },
 ];
 
 interface CreditEntry {
   title: string;
   publication: string;
+  publisher?: string;
   url: string;
+  date?: string;
+  year?: string;
 }
-
-const CreditList = ({ credits }: { credits: CreditEntry[] }) => (
-  <ul className="space-y-4">
-    {credits.map((entry) => (
-      <li key={entry.title} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 font-cormorant text-lg">
-        <span className="text-foreground/90 font-semibold">"{entry.title}"</span>
-        <span className="text-foreground/50 hidden sm:inline">—</span>
-        <span className="text-foreground/70">first appeared in{" "}
-          <a
-            href={entry.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:text-primary underline underline-offset-4 decoration-accent/40 hover:decoration-primary transition-colors duration-200 italic"
-          >
-            {entry.publication}
-          </a>
-        </span>
-      </li>
-    ))}
-  </ul>
-);
 
 const FirstAppearances = () => {
   return (
@@ -68,39 +48,29 @@ const FirstAppearances = () => {
             </span>
           </h2>
           <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
-            Where these stories first saw the light
+            Chronological publication credits
           </p>
         </div>
 
-        {/* Two books */}
-        <div className="space-y-12 animate-fade-in" style={{ animationDelay: "200ms" }}>
-          {/* Book 1 */}
-          <div className="p-8 md:p-10 rounded-2xl bg-gradient-to-br from-muted/50 to-muted/20 border border-primary/15 backdrop-blur-sm">
-            <div className="mb-6 pb-4 border-b border-primary/20">
-              <p className="font-cormorant text-sm text-accent font-semibold tracking-widest uppercase mb-1">
-                First Collection
-              </p>
-              <h3 className="font-cinzel text-2xl font-bold text-foreground">My Bohemian Baptism</h3>
-              <p className="font-cormorant text-base text-foreground/60 italic mt-0.5">
-                © 2023 by Doug Brown
-              </p>
-            </div>
-            <CreditList credits={book1Credits} />
-          </div>
-
-          {/* Book 2 */}
-          <div className="p-8 md:p-10 rounded-2xl bg-gradient-to-br from-muted/50 to-muted/20 border border-accent/15 backdrop-blur-sm">
-            <div className="mb-6 pb-4 border-b border-accent/20">
-              <p className="font-cormorant text-sm text-accent font-semibold tracking-widest uppercase mb-1">
-                Second Collection
-              </p>
-              <h3 className="font-cinzel text-2xl font-bold text-foreground">Gladfind and Other Monsters</h3>
-              <p className="font-cormorant text-base text-foreground/60 italic mt-0.5">
-                © 2026 by Doug Brown
-              </p>
-            </div>
-            <CreditList credits={book2Credits} />
-          </div>
+        <div className="animate-fade-in p-8 md:p-12 rounded-3xl bg-gradient-to-br from-muted/40 to-muted/10 border border-primary/20 backdrop-blur-sm" style={{ animationDelay: "200ms" }}>
+          <ul className="space-y-6">
+            {allCredits.map((entry, idx) => (
+              <li key={idx} className="font-cormorant text-lg md:text-xl text-foreground/90 leading-relaxed pl-4 border-l-2 border-primary/40 hover:border-accent transition-colors">
+                <span className="italic">"{entry.title}"</span>
+                <span className="mx-2 text-foreground/80">—</span>
+                <a
+                  href={entry.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 decoration-muted-foreground/30 hover:decoration-primary transition-colors text-foreground"
+                >
+                  <span className="underline">{entry.publication}</span>
+                </a>
+                {entry.publisher && <span>, {entry.publisher}</span>}
+                <span className="text-foreground/70">, {entry.date || entry.year}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

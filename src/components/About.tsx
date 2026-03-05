@@ -48,13 +48,7 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Main content */}
             <div className="space-y-8 font-cormorant text-lg md:text-xl text-foreground/90 leading-relaxed">
-              <p className="text-2xl first-letter:text-7xl first-letter:font-cinzel first-letter:text-accent first-letter:float-left first-letter:mr-4 first-letter:leading-none first-letter:mt-2">
-                Doug Brown is not your typical fiction writer. Early in his career, 
-                he won the prestigious <span className="text-accent font-bold">Katie Lehman Award for Fiction</span> — then, 
-                as he tells it, fell asleep under a tree for forty years. Now awake and writing with 
-                renewed purpose, he has returned with a voice that critics call bracing, tactile, 
-                and utterly distinctive.
-              </p>
+
 
               {/* Amazon Author Page Link */}
               <div className="pt-4">
@@ -70,19 +64,8 @@ const About = () => {
                 </a>
               </div>
 
-              <p className="text-xl">
-                Educated at <span className="text-accent font-semibold">Carnegie Mellon</span> and{" "}
-                <span className="text-accent font-semibold">Penn State</span>, Brown now lives in New England, 
-                where the landscape feeds his particular brand of American Gothic — fiction that reveals 
-                the strangeness lurking beneath the quaint ordinary and exposes hidden fault lines in everyday lives.
-              </p>
-
-              <p className="text-xl">
-                His prose — described as a blend of the whimsical and the unsettling, the absurd and the emotionally fearless — 
-                has earned him the moniker of{" "}
-                <span className="text-accent font-bold italic">"a Yankee Flannery O'Connor."</span>{" "}
-                His stories range from detective fiction to magical realism, from slice of life to dystopian fantasy, 
-                but they are always united by a heartbroken, marvelous view of the world and the people who stumble through it.
+              <p className="text-xl leading-relaxed">
+                Doug Brown is not your typical fiction writer. After writing a slew of stories and winning the prestigious <span className="text-accent font-bold">Katie Lehman Award for Fiction</span> in a previous century, he fell asleep under a tree and awoke 30 years later ready to write some more. His work has been described as "New England gothic," weaving the threads of the workaday into absurd, incisive tapestries revealing the marvelous and the grotesque. His short fiction was published in BarBar, Half and One, The Pink Hydra, and Solid Food Press. His first short story collection, <span className="italic">My Bohemian Baptism and Then Some</span>, was released by Serif Press in October, 2023. His second collection, <span className="italic">Gladfind and Other Monsters: A Short Story Collection</span> followed two years later and was released by Serif Press in February, 2026. Doug's stories earned shortlist mention for the Khasi Hills Creative Prize 2023 and Globe Soup Best Short Stories 2022. "Cats" was anthologized in ____ in March, 2026. His non-fiction ghost story, "The Stalking of Old Moses Wharton" appeared in the anthology <span className="italic">24 Tales: More Appalachian Ghost Stories, Legends & Mysteries</span>, by Howling Hills Publishing. Doug holds degrees from Carnegie Mellon and Penn State.
               </p>
             </div>
 
