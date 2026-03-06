@@ -38,18 +38,9 @@ const Hero = () => {
           </div>
 
           <div className="space-y-6">
-            <h1 className="font-cinzel text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider leading-none">
-              <span className="inline-block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto]">
-                DOUG BROWN
-              </span>
+            <h1 className="font-cormorant text-6xl md:text-8xl lg:text-9xl font-semibold tracking-wider text-primary">
+               Doug Brown
             </h1>
-            
-            <div className="relative inline-block">
-              <div className="absolute inset-0 bg-accent/10 blur-2xl" />
-              <p className="relative font-cormorant text-2xl md:text-3xl text-foreground/90 italic font-light tracking-wide px-8">
-                Where the Ordinary Meets the Grotesque
-              </p>
-            </div>
           </div>
 
           <div className="max-w-3xl mx-auto pt-6">
@@ -63,18 +54,10 @@ const Hero = () => {
             <Button 
               onClick={scrollToBooks}
               size="lg"
-              className="group relative font-cinzel text-lg px-10 py-7 bg-gradient-gothic hover:shadow-glow transition-all duration-500 text-primary-foreground border-0 overflow-hidden"
+              className="group relative font-cormorant text-xl px-10 py-7 border-2 border-primary/40 bg-background/20 hover:bg-primary/10 hover:border-primary text-foreground transition-all duration-300 backdrop-blur-md overflow-hidden"
             >
               <span className="relative z-10">Explore the Books</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/30 to-accent/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             </Button>
-          <Button 
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            size="lg"
-            className="font-cinzel text-lg px-10 py-7 border-2 border-primary/40 bg-background/20 hover:bg-primary/10 hover:border-primary text-foreground transition-all duration-300 backdrop-blur-md"
-          >
-            About the Author
-          </Button>
           </div>
 
           {/* Scroll indicator */}

@@ -4,56 +4,75 @@ import { Card } from "@/components/ui/card";
 interface Blurb {
   id: string;
   author: string;
-  title: string;
-  quote: string;
+  title: React.ReactNode;
+  quote: React.ReactNode;
   source?: string;
 }
 
 const editorialBlurbs: Blurb[] = [
-  // --- My Bohemian Baptism (Oct 2023) ---
-  {
-    id: "mbb-1",
-    author: "Mike Aquilina",
-    title: "author, Rhymes' Reasons",
-    quote:
-      "Doug Brown's stories speak the Greek tragedies in a language we cannot help but understand. They turn the tools of Roman satire against the times we inhabit. In these qualities—as in his horrors and grotesqueries—he follows Flannery O'Connor, whom I had till now thought inimitable. These are works of genius.",
-  },
-  {
-    id: "mbb-2",
-    author: "Kenneth Garcia, PhD",
-    title: "Award winning author of Pilgrim River",
-    quote:
-      "Vivid characters and vibrant prose. Doug Brown is an engaging writer and a keen observer of people and the circumstances in which they find themselves... The stories are alternately humorous, serious, and deeply moving. The endings surprise, and even startle. Brown knows how to spin a good yarn... I highly recommend this book.",
-  },
-  {
-    id: "mbb-3",
-    author: "Jane Greer",
-    title: "author, Love like a Conflagration",
-    quote:
-      "Doug Brown's stories are weird. He sees the world through some sort of custom microscope that reveals the weirdness of normal people and situations, and conveys that revelation in bracing, inventive language. This is his first collection; I can't wait for his second.",
-  },
-  
   // --- Gladfind and Other Monsters (Feb 2026) ---
   {
     id: "gladfind-1",
     author: "Jon DiSavino",
     title: "Host, Short Story Today",
-    quote:
-      "While the title hints at horror, these stories are more likely to make readers smile than shiver. Brown reminds us that where there's light, there will always be shadow — and that both can be beautiful.",
+    quote: (
+      <>
+        <span className="text-secondary font-bold">While the title hints at horror,</span> these stories are more likely to make readers smile than shiver. Brown reminds us that where there's light, there will always be shadow — and that both can be beautiful.
+      </>
+    ),
   },
   {
     id: "gladfind-2",
     author: "Terry Shaw",
     title: "Author & Publisher",
-    quote:
-      "Quirky, original, and most of all — fun. The lyrical writing is almost tactile in its intensity. Doug Brown has created something genuinely unique in the landscape of contemporary short fiction.",
+    quote: (
+      <>
+        <span className="text-secondary font-bold">Quirky, original, and most of all — fun.</span> The lyrical writing is almost tactile in its intensity. Doug Brown has created something genuinely unique in the landscape of contemporary short fiction.
+      </>
+    ),
   },
   {
     id: "gladfind-3",
     author: "Thomas Tracy",
     title: "Author",
-    quote:
-      "From contemplative peaks to baleful troughs, Brown's range is extraordinary. His prose is tactile yet surreal, angelic and absurd — a writer working at the very top of his craft.",
+    quote: (
+      <>
+        From contemplative peaks to baleful troughs, Brown's range is extraordinary. <span className="text-secondary font-bold">His prose is tactile yet surreal, angelic and absurd — a writer working at the very top of his craft.</span>
+      </>
+    ),
+  },
+
+  // --- My Bohemian Baptism (Oct 2023) ---
+  {
+    id: "mbb-3",
+    author: "Jane Greer",
+    title: <span className="italic">author, Love like a Conflagration and The World as We Know It Is Falling Away</span>,
+    quote: (
+      <>
+        <span className="text-secondary text-2xl md:text-3xl font-bold">Doug Brown's stories are weird.</span> He sees the world through some sort of custom microscope that reveals the weirdness of normal people and situations, and conveys that revelation in bracing, inventive language. This is his first collection; I can't wait for his second.
+      </>
+    ),
+  },
+  {
+    id: "mbb-2",
+    author: "Kenneth Garcia, PhD",
+    title: <>Award winning author of <span className="italic">Pilgrim River: A Spiritual Memoir</span></>,
+    quote: (
+      <>
+        <span className="text-secondary text-2xl md:text-3xl font-bold">Vivid characters and vibrant prose.</span> Doug Brown is an engaging writer and a keen observer of people and the circumstances in which they find themselves: whether the encounters of missionaries, donning white shirts and black ties, in an unfriendly neighborhood; a young boy who spends a summer with his quirky and aging hippie aunt and uncle; a tale about the discovery of grisly murders and their perpetrators; and a hilarious—but portentous—interaction between an ordinary, middle-aged citizen and a census agent of the all-seeing and intrusive Nanny State. The stories are alternately humorous, serious, and deeply moving. The endings surprise, and even startle. Brown knows how to spin a good yarn... I highly recommend this book.
+      </>
+    ),
+  },
+  {
+    id: "mbb-1",
+    author: "Mike Aquilina",
+    title: <>author, <span className="italic">Rhymes' Reasons</span></>,
+    quote: (
+      <>
+        Doug Brown's stories speak the Greek tragedies in a language we cannot help but understand. They turn the tools of Roman satire against the times we inhabit. In these qualities—as in his horrors and grotesqueries—he follows Flannery O'Connor, whom I had till now thought inimitable.<br/>
+        <span className="text-secondary text-2xl md:text-3xl font-bold mt-2 inline-block">These are works of genius.</span>
+      </>
+    ),
   },
 ];
 
@@ -79,48 +98,32 @@ const EditorialPraise = () => {
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Acclaim</span>
           </h2>
           <p className="font-cormorant text-2xl text-foreground/90 max-w-2xl mx-auto italic font-medium">
-            What literary voices are saying about Doug Brown's fiction
+            What people are saying...
           </p>
         </div>
 
         {/* Blurbs grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="flex flex-col gap-12 max-w-4xl mx-auto">
           {editorialBlurbs.map((blurb, index) => (
-            <Card
+            <div
               key={blurb.id}
-              className="relative p-8 bg-gradient-to-br from-card via-card to-secondary/5 border-accent/15 shadow-deep group hover:shadow-glow hover:border-primary/30 transition-all duration-500 animate-fade-in"
+              className="relative px-2 md:px-6 animate-fade-in"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-
-
               <div className="relative z-10 space-y-6">
-                <p className="font-cormorant text-lg text-foreground/90 leading-relaxed italic">
-                  "{blurb.quote}"
+                <p className="font-cormorant text-xl text-foreground/90 leading-relaxed max-w-3xl">
+                  {blurb.quote}
                 </p>
 
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <div className="absolute -inset-1 bg-gradient-gothic rounded-full blur-sm opacity-40" />
-                    <div className="relative w-12 h-12 rounded-full bg-gradient-gothic flex items-center justify-center">
-                      <span className="font-cinzel font-bold text-lg text-primary-foreground">
-                        {blurb.author.charAt(0)}
-                      </span>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="font-cinzel font-bold text-foreground">
-                      {blurb.author}
-                    </p>
-                    <p className="font-cormorant text-sm text-accent">
-                      {blurb.title}
+                <div className="flex justify-end pr-0 md:pr-4">
+                  <div className="text-right">
+                    <p className="font-cormorant text-lg text-foreground">
+                      {blurb.author}, {blurb.title}
                     </p>
                   </div>
                 </div>
               </div>
-
-              {/* Decorative corner */}
-              <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-accent/15 rounded-bl-xl" />
-            </Card>
+            </div>
           ))}
         </div>
 
@@ -156,10 +159,10 @@ const EditorialPraise = () => {
               </div>
               <div>
                 <p className="font-cormorant text-lg text-foreground/90 mb-1">
-                  2022, <span className="italic">"Wendy Wafers Tart and Tangy"</span>
+                  1984
                 </p>
                 <p className="font-cinzel text-accent font-bold">
-                  Globe Soup Open Short Story Honorable Mention
+                  Katie Lehman Award for Overall Excellence
                 </p>
               </div>
             </Card>

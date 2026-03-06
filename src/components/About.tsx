@@ -30,17 +30,8 @@ const About = () => {
             </div>
 
             <div className="text-center lg:text-left space-y-6">
-              <div className="flex items-center justify-center lg:justify-start mb-8">
-                <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent lg:hidden" />
-                <div className="mx-6 relative">
-                  <div className="absolute inset-0 bg-primary blur-lg opacity-30" />
-                  <BookMarked className="relative w-6 h-6 text-primary" />
-                </div>
-                <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
-              </div>
-              
-              <h2 className="font-cinzel text-5xl md:text-7xl font-bold">
-                About <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">the Author</span>
+              <h2 className="font-cormorant text-5xl md:text-6xl font-bold text-primary">
+                About & Contact
               </h2>
             </div>
           </div>
@@ -51,17 +42,36 @@ const About = () => {
 
 
               {/* Amazon Author Page Link */}
-              <div className="pt-4">
+              <div className="pt-4 flex flex-wrap gap-4">
                 <a
                   href="http://amazon.com/author/doug.brown.fiction"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button className="font-cinzel bg-gradient-gothic hover:shadow-glow transition-all duration-300 text-primary-foreground border-0 gap-2">
+                  <Button className="font-cormorant text-lg bg-primary hover:bg-accent hover:text-primary-foreground transition-all duration-300 text-primary-foreground border-0 gap-2">
                     <ExternalLink className="w-4 h-4" />
                     Amazon Author Page
                   </Button>
                 </a>
+                <a
+                  href="https://x.com/dougbrownfables"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" className="font-cormorant text-lg border-primary/50 text-foreground hover:bg-primary/10 transition-all duration-300 gap-2">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
+                    Follow on X
+                  </Button>
+                </a>
+                
+                {/* Gallery CTA */}
+                <div className="w-full mt-4">
+                  <a href="/gallery">
+                    <Button className="w-full font-cormorant text-xl py-6 bg-secondary hover:bg-secondary/80 transition-all duration-300 text-primary-foreground border-0 gap-2 shadow-md">
+                      View Author Photo Gallery <span>→</span>
+                    </Button>
+                  </a>
+                </div>
               </div>
 
               <p className="text-xl leading-relaxed">
@@ -77,7 +87,7 @@ const About = () => {
                     <BookMarked className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-cinzel text-2xl font-bold text-foreground mb-2">New England Gothic</h3>
+                    <h3 className="font-cormorant text-2xl font-bold text-foreground mb-2">New England Gothic</h3>
                     <p className="font-cormorant text-lg text-foreground/80">
                       Fiction that reveals the strangeness beneath the ordinary — lyrical, tactile, and bracing
                     </p>
@@ -91,7 +101,7 @@ const About = () => {
                     <Award className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-cinzel text-2xl font-bold text-foreground mb-2">Award-Winning</h3>
+                    <h3 className="font-cormorant text-2xl font-bold text-foreground mb-2">Award-Winning</h3>
                     <p className="font-cormorant text-lg text-foreground/80">
                       Winner of the Katie Lehman Award for Fiction — recognized for literary excellence
                     </p>
@@ -105,7 +115,7 @@ const About = () => {
                     <GraduationCap className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-cinzel text-2xl font-bold text-foreground mb-2">Literary Craftsman</h3>
+                    <h3 className="font-cormorant text-2xl font-bold text-foreground mb-2">Literary Craftsman</h3>
                     <p className="font-cormorant text-lg text-foreground/80">
                       Educated at Carnegie Mellon and Penn State — intellectual depth meets visceral storytelling
                     </p>
@@ -115,25 +125,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Featured quote */}
-          <div className="relative mt-16 max-w-4xl mx-auto">
-            <div className="relative p-10 md:p-12 rounded-3xl bg-gradient-to-br from-muted/60 to-muted/30 border border-accent/30 backdrop-blur-sm overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
-              
-              <div className="relative">
-                <div className="absolute -top-6 -left-2 text-8xl text-accent/20 font-cinzel leading-none">"</div>
-                <blockquote className="font-cormorant text-2xl md:text-3xl italic text-foreground/90 text-center relative z-10 leading-relaxed">
-                  The monsters in our stories are often the ones we carry inside — 
-                  anxieties, compromises, appetites that distort vision and warp desire. 
-                  But sometimes they live in the closet, and a good story knows the difference.
-                </blockquote>
-                <div className="mt-6 font-cinzel text-xl text-accent font-bold text-center">
-                  — Doug Brown
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

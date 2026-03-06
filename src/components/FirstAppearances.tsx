@@ -50,11 +50,8 @@ const FirstAppearances = () => {
             </div>
             <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
           </div>
-          <h2 className="font-cinzel text-4xl md:text-6xl font-bold">
-            First{" "}
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              Appearances
-            </span>
+          <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-primary">
+            First Appearances
           </h2>
           <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
             Chronological publication credits

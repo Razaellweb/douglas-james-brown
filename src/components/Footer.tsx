@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import NewsletterModal from "./NewsletterModal";
 
 // Amazon icon component
 const AmazonIcon = ({ className }: { className?: string }) => (
@@ -17,15 +15,13 @@ const AmazonIcon = ({ className }: { className?: string }) => (
 );
 
 const Footer = () => {
-  const [newsletterOpen, setNewsletterOpen] = useState(false);
-
   return (
     <footer id="contact" className="relative bg-gradient-to-b from-background to-muted/20 border-t border-border/50">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           {/* Brand section */}
           <div className="space-y-4">
-            <h3 className="font-cinzel text-2xl font-bold bg-gradient-gothic bg-clip-text text-transparent">
+            <h3 className="font-cormorant text-2xl font-bold text-foreground">
               Doug Brown
             </h3>
             <p className="font-cormorant text-muted-foreground leading-relaxed">
@@ -36,8 +32,8 @@ const Footer = () => {
 
           {/* Quick links */}
           <div className="space-y-4">
-            <h4 className="font-cinzel text-lg font-semibold text-foreground">Quick Links</h4>
-            <ul className="space-y-2 font-cormorant">
+            <h4 className="font-cormorant text-xl font-semibold text-foreground">Quick Links</h4>
+            <ul className="space-y-2 font-cormorant text-lg">
               <li>
                 <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
                   About
@@ -45,7 +41,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#bookstore" className="text-muted-foreground hover:text-primary transition-colors">
-                  Bookstore
+                  Bookshelf
                 </a>
               </li>
               <li>
@@ -54,26 +50,11 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#liner-notes" className="text-muted-foreground hover:text-primary transition-colors">
-                  Liner Notes
+                <a href="#fandom" className="text-muted-foreground hover:text-primary transition-colors">
+                  Fandom
                 </a>
               </li>
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div className="space-y-4">
-            <h4 className="font-cinzel text-lg font-semibold text-foreground">Stay Connected</h4>
-            <p className="font-cormorant text-muted-foreground text-sm">
-              Subscribe for updates on new releases, behind-the-scenes insights, and exclusive content from the world of Doug Brown's fiction.
-            </p>
-            <Button 
-              onClick={() => setNewsletterOpen(true)}
-              className="w-full bg-gradient-gothic hover:shadow-glow transition-all duration-300 text-primary-foreground border-0"
-            >
-              <Mail className="w-4 h-4 mr-2" />
-              Subscribe to Newsletter
-            </Button>
           </div>
         </div>
 
@@ -99,16 +80,13 @@ const Footer = () => {
           </div>
 
           <p className="font-cormorant text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Douglas James Brown. All rights reserved. Published by Serif Press.
+            © Doug Brown
           </p>
         </div>
       </div>
 
       {/* Decorative top border */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-gothic" />
-
-      {/* Newsletter Modal */}
-      <NewsletterModal open={newsletterOpen} onOpenChange={setNewsletterOpen} />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-primary/20" />
     </footer>
   );
 };
