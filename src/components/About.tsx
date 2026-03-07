@@ -1,8 +1,9 @@
-import { BookMarked, GraduationCap, Award, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import authorImg from "../assets/douglas.jpg";
-
-
+// import doug2 from "../assets/doug/doug5.jpg";
+import doug3 from "../assets/doug/doug3.jpg";
+import doug2 from "../assets/doug/doug2.jpg";
 const About = () => {
   return (
     <section id="about" className="relative py-32 px-6 overflow-hidden">
@@ -31,7 +32,7 @@ const About = () => {
 
             <div className="text-center lg:text-left space-y-6">
               <h2 className="font-cormorant text-5xl md:text-6xl font-bold text-primary">
-                About & Contact
+                About
               </h2>
             </div>
           </div>
@@ -41,8 +42,8 @@ const About = () => {
             <div className="space-y-8 font-cormorant text-lg md:text-xl text-foreground/90 leading-relaxed">
 
 
-              {/* Amazon Author Page Link */}
-              <div className="pt-4 flex flex-wrap gap-4">
+              {/* Amazon and Twitter Links */}
+              <div className="pt-4 flex flex-wrap gap-4 mb-8">
                 <a
                   href="http://amazon.com/author/doug.brown.fiction"
                   target="_blank"
@@ -63,63 +64,42 @@ const About = () => {
                     Follow on X
                   </Button>
                 </a>
-                
-                {/* Gallery CTA */}
-                <div className="w-full mt-4">
-                  <a href="/gallery">
-                    <Button className="w-full font-cormorant text-xl py-6 bg-secondary hover:bg-secondary/80 transition-all duration-300 text-primary-foreground border-0 gap-2 shadow-md">
-                      View Author Photo Gallery <span>→</span>
-                    </Button>
-                  </a>
-                </div>
               </div>
 
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed mb-8">
                 Doug Brown is not your typical fiction writer. After writing a slew of stories and winning the prestigious <span className="text-accent font-bold">Katie Lehman Award for Fiction</span> in a previous century, he fell asleep under a tree and awoke 30 years later ready to write some more. His work has been described as "New England gothic," weaving the threads of the workaday into absurd, incisive tapestries revealing the marvelous and the grotesque. His short fiction was published in BarBar, Half and One, The Pink Hydra, and Solid Food Press. His first short story collection, <span className="italic">My Bohemian Baptism and Then Some</span>, was released by Serif Press in October, 2023. His second collection, <span className="italic">Gladfind and Other Monsters: A Short Story Collection</span> followed two years later and was released by Serif Press in February, 2026. Doug's stories earned shortlist mention for the Khasi Hills Creative Prize 2023 and Globe Soup Best Short Stories 2022. "Cats" was anthologized in <span className="italic">Half and One Magazine Issue 3</span> in March, 2026. His non-fiction ghost story, "The Stalking of Old Moses Wharton" appeared in the anthology <span className="italic">24 Tales: More Appalachian Ghost Stories, Legends & Mysteries</span>, by Howling Hills Publishing. Doug holds degrees from Carnegie Mellon and Penn State.
               </p>
+              
+              {/* Gallery CTA */}
+              <div className="w-full mt-8 pt-4">
+                <a href="/gallery">
+                  <Button className="w-auto px-8 font-cormorant text-xl py-6 bg-secondary hover:bg-secondary/80 transition-all duration-300 text-primary-foreground border-0 gap-2 shadow-md">
+                    More Photos <span>→</span>
+                  </Button>
+                </a>
+              </div>
             </div>
 
-            {/* Sidebar highlights */}
-            <div className="space-y-6">
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 backdrop-blur-sm">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 rounded-full bg-primary/20">
-                    <BookMarked className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-cormorant text-2xl font-bold text-foreground mb-2">New England Gothic</h3>
-                    <p className="font-cormorant text-lg text-foreground/80">
-                      Fiction that reveals the strangeness beneath the ordinary — lyrical, tactile, and bracing
-                    </p>
-                  </div>
+            {/* Descending Photos Sidebar */}
+            <div className="space-y-8 flex flex-col items-center lg:items-end mt-8 lg:mt-0 lg:pl-12">
+              <div className="relative group w-full max-w-sm">
+                <div className="absolute -inset-2 bg-gradient-gothic blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-xl" />
+                <div className="relative overflow-hidden rounded-xl border border-primary/20 shadow-lg transform rotate-[-2deg] hover:rotate-0 hover:z-10 transition-all duration-500 aspect-square">
+                  <img src={doug2} alt="Doug Brown reading" className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 grayscale hover:grayscale-0" />
                 </div>
               </div>
-
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-secondary/10 to-secondary/5 border border-secondary/20 backdrop-blur-sm">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 rounded-full bg-secondary/20">
-                    <Award className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="font-cormorant text-2xl font-bold text-foreground mb-2">Award-Winning</h3>
-                    <p className="font-cormorant text-lg text-foreground/80">
-                      Winner of the Katie Lehman Award for Fiction — recognized for literary excellence
-                    </p>
-                  </div>
+              
+              {/* <div className="relative group w-full max-w-[85%]">
+                <div className="absolute -inset-2 bg-gradient-gothic blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-xl" />
+                <div className="relative overflow-hidden rounded-xl border border-secondary/20 shadow-lg transform rotate-[3deg] hover:rotate-0 hover:z-10 transition-all duration-500 aspect-[4/3] mr-4 lg:-mr-8">
+                  <img src={doug2} alt="Author Doug Brown" className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 grayscale hover:grayscale-0" />
                 </div>
-              </div>
+              </div> */}
 
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 backdrop-blur-sm">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 rounded-full bg-accent/20">
-                    <GraduationCap className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="font-cormorant text-2xl font-bold text-foreground mb-2">Literary Craftsman</h3>
-                    <p className="font-cormorant text-lg text-foreground/80">
-                      Educated at Carnegie Mellon and Penn State — intellectual depth meets visceral storytelling
-                    </p>
-                  </div>
+              <div className="relative group w-full max-w-[70%] lg:mr-12">
+                <div className="absolute -inset-2 bg-gradient-gothic blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-xl" />
+                <div className="relative overflow-hidden rounded-xl border border-accent/20 shadow-lg transform rotate-[-4deg] hover:rotate-0 hover:z-10 transition-all duration-500 aspect-[3/4]">
+                  <img src={doug3} alt="Doug Brown portrait" className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 grayscale hover:grayscale-0" />
                 </div>
               </div>
             </div>

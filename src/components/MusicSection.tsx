@@ -99,11 +99,6 @@ const MusicSection = () => {
       <div className="container relative z-10 px-6 mx-auto">
         {/* Section header */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <div className="flex items-center justify-center gap-3">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-primary to-transparent" />
-            <Music className="w-6 h-6 text-accent" />
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-primary to-transparent" />
-          </div>
           <h2 className="font-cinzel text-4xl md:text-5xl font-bold text-foreground">
             Original <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Soundtrack</span>
           </h2>

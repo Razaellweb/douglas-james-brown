@@ -46,7 +46,7 @@ const editorialBlurbs: Blurb[] = [
   {
     id: "mbb-3",
     author: "Jane Greer",
-    title: <span className="italic">author, Love like a Conflagration and The World as We Know It Is Falling Away</span>,
+    title: <>author, <span className="italic">Love like a Conflagration</span> and <span className="italic">The World as We Know It Is Falling Away</span></>,
     quote: (
       <>
         <span className="text-secondary text-2xl md:text-3xl font-bold">Doug Brown's stories are weird.</span> He sees the world through some sort of custom microscope that reveals the weirdness of normal people and situations, and conveys that revelation in bracing, inventive language. This is his first collection; I can't wait for his second.
@@ -89,11 +89,6 @@ const EditorialPraise = () => {
       <div className="container relative z-10 mx-auto max-w-6xl">
         {/* Section header */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <div className="flex items-center justify-center gap-3">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-primary to-transparent" />
-            <Star className="w-6 h-6 text-accent" />
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-primary to-transparent" />
-          </div>
           <h2 className="font-cinzel text-4xl md:text-6xl font-bold text-foreground">
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Acclaim</span>
           </h2>
@@ -127,11 +122,10 @@ const EditorialPraise = () => {
           ))}
         </div>
 
-        {/* Awards */}
-        <div className="mt-24 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: "450ms" }}>
+        {/* Honors grid wrapper */}
+        <div className="mt-32 pt-24 animate-fade-in" style={{ animationDelay: '300ms' }}>
           <div className="flex items-center gap-4 mb-10">
             <h3 className="font-cinzel text-3xl font-bold text-foreground">Awards & Honors</h3>
-            <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">

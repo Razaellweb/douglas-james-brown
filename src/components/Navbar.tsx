@@ -28,7 +28,7 @@ const Navbar = () => {
     { name: "Acclaim", href: "#acclaim", icon: MessageSquareQuote, isAnchor: true },
     { name: "Fandom", href: "#fandom", icon: ShoppingBag, isAnchor: true },
     { name: "About", href: "#about", icon: User, isAnchor: true },
-    { name: "Contact", href: "#about", icon: Mail, isAnchor: true },
+    // { name: "Contact", href: "#about", icon: Mail, isAnchor: true },
   ];
 
   const scrollToSection = (href: string) => {
@@ -51,21 +51,21 @@ const Navbar = () => {
             {/* Logo - Styled like a book spine */}
             <Link
               to="/"
-              className="flex items-center transition-opacity hover:opacity-80 py-2 w-1/2 justify-start"
+              className="flex items-center transition-opacity hover:opacity-80 py-2 w-1/2 md:w-1/3 justify-start shrink-0"
             >
-              <div className="font-cormorant text-2xl tracking-widest text-primary font-semibold relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-[150%] after:h-[1px] after:bg-primary/50">
+              <div className="font-cormorant text-[7vw] sm:text-4xl md:text-[3.5vw] lg:text-[4vw] tracking-widest text-primary font-bold relative after:content-[''] after:absolute after:left-0 after:-bottom-2 after:w-full after:h-[2px] after:bg-primary/50 whitespace-nowrap">
                 Doug Brown
               </div>
             </Link>
 
             <div className="flex items-center gap-4">
               {/* Desktop Menu */}
-              <div className="hidden md:flex items-center gap-6 mr-4">
+              <div className="hidden lg:flex items-center gap-2 xl:gap-4 mr-2">
                 {navLinks.map((link) => (
                   <button
                     key={link.name}
                     onClick={() => scrollToSection(link.href)}
-                    className="font-cormorant text-[17px] font-medium text-foreground hover:text-primary transition-colors"
+                    className="font-cormorant text-base xl:text-lg font-bold px-3 py-1.5 xl:px-4 xl:py-2 border border-primary/50 bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground rounded transition-all shadow-[0_0_10px_rgba(212,175,55,0.15)] hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] whitespace-nowrap"
                   >
                     {link.name}
                   </button>
@@ -114,7 +114,7 @@ const Navbar = () => {
           className="absolute inset-0 bg-background/98 backdrop-blur-2xl"
           onClick={() => setIsMobileMenuOpen(false)}
         />
-        <div className="relative h-full flex flex-col items-center justify-center space-y-8 animate-fade-in">
+        <div className="relative h-full flex flex-col items-center justify-center space-y-6 animate-fade-in px-6">
           {navLinks.map((link, index) =>
             link.isAnchor ? (
               <a
@@ -124,7 +124,7 @@ const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="group flex items-center space-x-3 font-cormorant text-3xl font-bold text-foreground hover:text-primary transition-all duration-300 animate-fade-in"
+                className="group flex items-center justify-center space-x-3 w-full max-w-sm font-cormorant text-2xl font-bold px-6 py-4 border-2 border-primary/50 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.2)] animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <link.icon className="w-6 h-6" />
@@ -134,7 +134,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className="group flex items-center space-x-3 font-cormorant text-3xl font-bold text-foreground hover:text-primary transition-all duration-300 animate-fade-in"
+                className="group flex items-center justify-center space-x-3 w-full max-w-sm font-cormorant text-2xl font-bold px-6 py-4 border-2 border-primary/50 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.2)] animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
                 onClick={() => setIsMobileMenuOpen(false)}
               >

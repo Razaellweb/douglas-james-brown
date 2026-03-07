@@ -4,7 +4,7 @@ import gladfindCover from "@/assets/gladfind-cover.png";
 export interface EditorialReview {
   quote: string;
   author: string;
-  role?: string;
+  role?: React.ReactNode;
 }
 
 export interface Book {
@@ -72,22 +72,22 @@ She went home and locked the door and did not sleep.`,
       {
         quote: "Doug Brown has accomplished all that one looks for when searching for a worthwhile story collection. The stories between the covers of My Bohemian Baptism and Then Some are teeming with unforgettable characters... In every case, their stories manage to touch a well of tenderness, and expose the fragile world of the human heart.",
         author: "Jon DiSavino",
-        role: "Host, Short Story Today",
+        role: <>Host, <span className="italic">Short Story Today</span></>,
       },
       {
         quote: "Doug Brown's stories speak the Greek tragedies in a language we cannot help but understand. They turn the tools of Roman satire against the times we inhabit. In these qualities — as in his horrors and grotesqueries — he follows Flannery O'Connor, whom I had till now thought inimitable. These are works of genius.",
         author: "Mike Aquilina",
-        role: "author, Rhymes' Reasons",
+        role: <>author, <span className="italic">Rhymes' Reasons</span></>,
       },
       {
         quote: "Vivid characters and vibrant prose. Doug Brown is an engaging writer and a keen observer of people and the circumstances in which they find themselves. The stories are alternately humorous, serious, and deeply moving. The endings surprise, and even startle. Brown knows how to spin a good yarn... I highly recommend this book.",
         author: "Kenneth Garcia, PhD",
-        role: "Award winning author of Pilgrim River: A Spiritual Memoir",
+        role: <>Award winning author of <span className="italic">Pilgrim River: A Spiritual Memoir</span></>,
       },
       {
         quote: "Doug Brown's stories are weird. He sees the world through some sort of custom microscope that reveals the weirdness of normal people and situations, and conveys that revelation in bracing, inventive language. This is his first collection; I can't wait for his second.",
         author: "Jane Greer",
-        role: "author, Love like a Conflagration and The World as We Know It Is Falling Away",
+        role: <>author, <span className="italic">Love like a Conflagration</span> and <span className="italic">The World as We Know It Is Falling Away</span></>,
       },
     ],
     formats: {
@@ -141,17 +141,17 @@ Mrs. Pettibone set down the iron. She had survived a war, three children, and fo
       {
         quote: "Quirky, original, and most of all — fun. Doug Brown's second collection, Gladfind and Other Monsters, features lyrical writing that is almost tactile in its intensity. Sit back, buckle up, and enjoy!",
         author: "Terry Shaw",
-        role: "Author of The Way Life Should Be and Publisher of Howling Hills Publishing",
+        role: <>Author of <span className="italic">The Way Life Should Be</span> and Publisher of Howling Hills Publishing</>,
       },
       {
         quote: "Doug Brown's stories run a range — from contemplative peaks to baleful troughs, which swallow the heart and drain it dry for a spell. On the way up — back down and around — you'll run across staggered plateaus: tactile yet surreal, angelic and absurd.",
         author: "Thomas Tracy",
-        role: "Author of The Kings of Cork Lane: A Baseball Memoir",
+        role: <>Author of <span className="italic">The Kings of Cork Lane: A Baseball Memoir</span></>,
       },
       {
         quote: "While the title of Doug Brown's second collection may be hinting at horror, there's more here to make you smile than shiver. Yes, you'll find closet monsters and shapeshifters and ghosts — but they're mastered by the children and adults in these stories in ways that will surprise and delight you. With an assured hand, Doug Brown reminds us that where there's light, there will always be shadow — but there's a good chance that the shadows may also be holding some of the answers we seek.",
         author: "Jon DiSavino",
-        role: "Podcast Producer and Host of Short Story Today",
+        role: <>Podcast Producer and Host of <span className="italic">Short Story Today</span></>,
       },
     ],
     formats: {

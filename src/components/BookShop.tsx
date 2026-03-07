@@ -130,11 +130,6 @@ const BookShop = ({ bookTitle, bookImage }: BookShopProps) => {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
-          <div className="flex items-center justify-center gap-4">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-accent" />
-            <ShoppingBag className="w-8 h-8 text-accent" />
-            <div className="h-px w-16 bg-gradient-to-r from-accent to-transparent" />
-          </div>
           <h2 className="font-cinzel text-4xl md:text-5xl font-bold text-foreground">
             The Author's Collection
           </h2>

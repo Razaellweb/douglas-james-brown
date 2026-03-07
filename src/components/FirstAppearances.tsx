@@ -42,19 +42,11 @@ const FirstAppearances = () => {
       <div className="container relative z-10 mx-auto max-w-4xl">
         {/* Header */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <div className="flex items-center justify-center gap-3">
-            <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
-            <div className="relative mx-4">
-              <div className="absolute inset-0 bg-primary blur-lg opacity-30" />
-              <span className="relative text-primary text-2xl">✦</span>
-            </div>
-            <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
-          </div>
           <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-primary">
             First Appearances
           </h2>
           <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
-            Chronological publication credits
+            First Publication Credits
           </p>
         </div>
 

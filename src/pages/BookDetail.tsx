@@ -124,7 +124,7 @@ const BookDetail = () => {
               </div>
 
               {/* Formats & Pricing */}
-              <div className="space-y-4 pt-2">
+              {/* <div className="space-y-4 pt-2">
                 <h3 className="font-cormorant text-xl font-semibold text-foreground">Available Formats</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 rounded-xl bg-muted/20 border border-border/30 text-center">
@@ -136,7 +136,7 @@ const BookDetail = () => {
                     <p className="font-cormorant text-2xl font-bold text-accent">${book.formats.paperback.toFixed(2)}</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* Buy on Amazon Button */}
               <a 
@@ -187,7 +187,7 @@ const BookDetail = () => {
                     "{review.quote}"
                   </p>
                   <p className="font-cormorant text-base text-foreground/70 text-right">
-                    — {review.author}{review.role ? `, ${review.role}` : ''}
+                    — {review.author}{review.role && <>, {review.role}</>}
                   </p>
                 </div>
               ))}
@@ -197,7 +197,7 @@ const BookDetail = () => {
       )}
 
       {/* Navigation to Other Books */}
-      <section className="py-12 md:py-16 px-4 sm:px-6 border-t border-border/20">
+      <section className="py-12 md:py-16 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl">
           <div className="flex justify-between items-center gap-4">
             {prevBook ? (

@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   const scrollToBooks = () => {
-    document.getElementById('books')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('bookstore')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -27,28 +27,7 @@ const Hero = () => {
 
       <div className="container relative z-10 px-6 py-32 mx-auto">
         <div className="max-w-5xl mx-auto text-center space-y-10 animate-fade-in">
-          {/* Ornate decorative element */}
-          <div className="flex items-center justify-center mb-8">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent" />
-            <div className="mx-6 relative">
-              <div className="absolute inset-0 bg-accent blur-xl opacity-50" />
-              <div className="relative w-3 h-3 bg-accent rounded-full shadow-gold" />
-            </div>
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent" />
-          </div>
-
-          <div className="space-y-6">
-            <h1 className="font-cormorant text-6xl md:text-8xl lg:text-9xl font-semibold tracking-wider text-primary">
-               Doug Brown
-            </h1>
-          </div>
-
-          <div className="max-w-3xl mx-auto pt-6">
-            <p className="font-cormorant text-xl md:text-2xl text-foreground/70 leading-relaxed">
-              A Yankee Flannery O'Connor — weaving the mundane into incisive tapestries 
-              that reveal the marvelous and the monstrous lurking just beneath the surface of everyday life.
-            </p>
-          </div>
+          {/* Title elements removed as per request */}
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-12">
             <Button 
@@ -67,9 +46,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Dramatic bottom gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-gothic shadow-glow" />
     </section>
   );
 };

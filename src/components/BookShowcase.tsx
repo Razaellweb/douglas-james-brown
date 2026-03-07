@@ -1,10 +1,179 @@
 import { Link } from "react-router-dom";
-import { Card } from "@/components/ui/card";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Award, Headphones, BookOpen, ExternalLink } from "lucide-react";
+import { Headphones, ExternalLink, BookOpen } from "lucide-react";
 import { books } from "@/data/books";
 import talesCover from "../assets/24tales.jpeg";
 import halfAndOneCover from "../assets/halfandone.jpg";
+
+interface ShowcaseItem {
+  id: string;
+  title: string;
+  subtitle?: string;
+  description: string;
+  type: 'book' | 'magazine' | 'audio';
+  coverUrl?: string;
+  link?: string;
+  externalLink?: string;
+  externalLinkText?: string;
+  author: string;
+}
+
+const showcaseItems: ShowcaseItem[] = [
+  {
+    id: "gladfind",
+    title: "Gladfind and Other Monsters",
+    subtitle: "A Short Story Collection",
+    description: "A second collection proving his debut was no accident. Brown's fiction ranges from whimsical to wistful, from absurd to unsettling.",
+    type: "book",
+    coverUrl: books[1].image,
+    link: "/book/gladfind-and-other-monsters",
+    author: "© Doug Brown"
+  },
+  {
+    id: "mbb",
+    title: "My Bohemian Baptism and Then Some",
+    subtitle: "Winner of the Katie Lehman Award",
+    description: "A stunning debut that establishes Brown as a voice of New England Gothic.",
+    type: "book",
+    coverUrl: books[0].image,
+    link: "/book/my-bohemian-baptism",
+    author: "© Doug Brown"
+  },
+  {
+    id: "halfandone",
+    title: "Half And One Magazine",
+    subtitle: "Vol 1, Issue 3",
+    description: "Featuring the acclaimed short story \"Cats\".",
+    type: "magazine",
+    coverUrl: halfAndOneCover,
+    externalLink: "https://halfandone.com/wp-content/uploads/2025/10/Half-And-One-Magazine-Vol1-Iss3.pdf",
+    externalLinkText: "Read Issue PDF",
+    author: "© Doug Brown"
+  },
+  {
+    id: "24tales",
+    title: "24 Tales: More Appalachian Ghost Stories",
+    subtitle: "Published by Howling Hills",
+    description: "Featuring the non-fiction ghost story \"The Stalking of Old Moses Wharton\".",
+    type: "magazine",
+    coverUrl: talesCover,
+    externalLink: "https://www.howlinghillspublishing.com/product/24-tales-more-appalachian-ghost-stories-legends-mysteries/12?cs=true&cst=custom",
+    externalLinkText: "View on Howling Hills",
+    author: "© Doug Brown"
+  },
+  {
+    id: "dan-baker",
+    title: "Dan Baker Reads \"Dammit\"",
+    description: "Baker, Dan. \"Dammit.\" Dan Baker, December 8, 2024. Voice credit to Dan Baker.",
+    type: "audio",
+    externalLink: "https://jumpshare.com/share/kPCaL0YH2c7oAfgNGKNH",
+    externalLinkText: "Listen to Recording",
+    author: "© Doug Brown"
+  },
+  {
+    id: "short-story-today",
+    title: "Short Story Today: Episode 83",
+    description: "Brown, Doug. \"My Bohemian Baptism.\" Short Story Today, February 7, 2024. Featuring a reading of the title story.",
+    type: "audio",
+    externalLink: "https://shortstorytoday.com/search?s=83",
+    externalLinkText: "Listen to Episode",
+    author: "© Doug Brown"
+  }
+];
+
+const FlipCard = ({ item }: { item: ShowcaseItem }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <div 
+      className="group relative h-[450px] w-full cursor-pointer"
+      style={{ perspective: '1000px' }}
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
+      <div 
+        className="w-full h-full transition-all duration-700 relative"
+        style={{ 
+          transformStyle: 'preserve-3d', 
+          WebkitTransformStyle: 'preserve-3d',
+          transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+        }}
+      >
+        
+        {/* Front of card */}
+        <div 
+          className="absolute inset-0 rounded-xl overflow-hidden bg-card/50 border border-border/50 shadow-lg group-hover:shadow-primary/20 group-hover:border-primary/50 transition-all duration-500 flex flex-col items-center justify-center z-10"
+          style={{ 
+            backfaceVisibility: 'hidden', 
+            WebkitBackfaceVisibility: 'hidden',
+            transform: 'rotateY(0deg) translateZ(1px)' 
+          }}
+        >
+          {item.coverUrl ? (
+            <img 
+              src={item.coverUrl} 
+              alt={item.title} 
+              className={`w-full h-full ${item.type === 'book' ? 'object-contain p-4' : 'object-cover'} group-hover:scale-105 transition-transform duration-700`} 
+            />
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 flex flex-col items-center justify-center p-8 text-center group-hover:from-primary/30 group-hover:to-secondary/30 transition-colors duration-500 rounded-xl">
+              <div className="absolute inset-0 bg-gradient-gothic opacity-30 mix-blend-overlay rounded-xl" />
+              <div className="relative z-10 w-24 h-24 rounded-full bg-background/50 backdrop-blur-sm border border-primary/30 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(var(--primary),0.2)]">
+                <Headphones className="w-12 h-12 text-primary" />
+              </div>
+              <h3 className="relative z-10 font-cinzel text-2xl font-bold text-foreground max-w-[80%]">{item.title}</h3>
+            </div>
+          )}
+        </div>
+
+        {/* Back of card */}
+        <div 
+          className={`absolute inset-0 rounded-xl border border-primary/30 shadow-xl p-8 flex flex-col justify-between overflow-hidden ${item.type === 'audio' ? 'bg-background/95' : 'bg-card'}`}
+          style={{ 
+            backfaceVisibility: 'hidden', 
+            WebkitBackfaceVisibility: 'hidden', 
+            transform: 'rotateY(180deg) translateZ(1px)' 
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
+          
+          <div className="relative z-10 space-y-4">
+            <h3 className="font-cormorant text-2xl md:text-3xl font-bold text-primary leading-tight">{item.title}</h3>
+            {item.subtitle && (
+              <p className="font-cormorant text-lg italic text-foreground/70">{item.subtitle}</p>
+            )}
+            <div className="h-px w-12 bg-primary/30 my-4" />
+            <p className="font-cormorant text-lg text-foreground/85 leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+
+          <div className="relative z-10 mt-auto pt-6 space-y-4">
+            {item.link ? (
+              <Link to={item.link} onClick={(e) => e.stopPropagation()} className="block w-full">
+                <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
+                  <BookOpen className="w-4 h-4 mr-2" />
+                  View Details
+                </Button>
+              </Link>
+            ) : item.externalLink ? (
+              <a href={item.externalLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
+                <Button variant="outline" className={`w-full border-primary/50 hover:bg-primary/10 font-cormorant text-lg h-12 ${item.type === 'audio' ? 'text-primary' : 'text-foreground'}`}>
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  {item.externalLinkText || "Visit Link"}
+                </Button>
+              </a>
+            ) : null}
+            
+            <p className="font-cormorant text-sm text-center text-muted-foreground pt-4 border-t border-border/50">
+              {item.author}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const BookShowcase = () => {
   return (
@@ -14,17 +183,8 @@ const BookShowcase = () => {
       <div className="absolute inset-0 opacity-[0.02]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`
       }} />
-
       <div className="container relative z-10 mx-auto max-w-7xl">
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <div className="flex items-center justify-center gap-3">
-            <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
-            <div className="relative mx-4">
-              <div className="absolute inset-0 bg-primary blur-lg opacity-30" />
-              <Sparkles className="relative w-6 h-6 text-primary" />
-            </div>
-            <div className="h-px w-20 bg-gradient-to-r from-transparent via-primary to-transparent" />
-          </div>
           
           <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-primary">
             Bookshelf
@@ -35,129 +195,9 @@ const BookShowcase = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Gladfind */}
-          <Link to="/book/gladfind-and-other-monsters" className="group">
-          <Card className="group flex flex-col relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-700 hover:-translate-y-2 cursor-pointer h-full">
-            <div className="relative aspect-[2/3] overflow-hidden bg-muted/20">
-              <img src={books[1].image} alt="Gladfind" className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="p-6 flex flex-col flex-1">
-              <h3 className="font-cormorant text-2xl font-bold text-foreground mb-4">Gladfind and Other Monsters</h3>
-              <p className="font-cormorant text-base text-foreground/80 leading-relaxed mb-6 flex-1">
-                A second collection proving his debut was no accident. Brown's fiction ranges from whimsical to wistful, from absurd to unsettling.
-              </p>
-              <div className="mt-auto pt-4 border-t border-border/50">
-                <p className="font-cormorant text-sm text-muted-foreground">© Doug Brown</p>
-              </div>
-            </div>
-          </Card>
-          </Link>
-
-          {/* MBB */}
-          <Link to="/book/my-bohemian-baptism" className="group">
-          <Card className="group flex flex-col relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-700 hover:-translate-y-2 cursor-pointer h-full">
-            <div className="relative aspect-[2/3] overflow-hidden bg-muted/20">
-              <img src={books[0].image} alt="My Bohemian Baptism" className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="p-6 flex flex-col flex-1">
-              <h3 className="font-cormorant text-2xl font-bold text-foreground mb-4">My Bohemian Baptism and Then Some</h3>
-              <p className="font-cormorant text-base text-foreground/80 leading-relaxed mb-6 flex-1">
-                Winner of the Katie Lehman Award. A stunning debut that establishes Brown as a voice of New England Gothic.
-              </p>
-              <div className="mt-auto pt-4 border-t border-border/50">
-                <p className="font-cormorant text-sm text-muted-foreground">© Doug Brown</p>
-              </div>
-            </div>
-          </Card>
-          </Link>
-
-          {/* Half And One Magazine */}
-          <Card className="group flex flex-col relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
-            <div className="relative aspect-[2/3] overflow-hidden bg-muted/20">
-              <img src={halfAndOneCover} alt="Half And One" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="p-6 flex flex-col flex-1">
-              <h3 className="font-cormorant text-2xl font-bold text-foreground mb-4">Half And One Magazine</h3>
-              <p className="font-cormorant text-base text-foreground/80 leading-relaxed mb-6 flex-1">
-                Vol 1, Issue 3. Featuring the acclaimed short story "Cats".
-              </p>
-              <div className="mt-auto space-y-4">
-                <a href="https://halfandone.com/wp-content/uploads/2025/10/Half-And-One-Magazine-Vol1-Iss3.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-cormorant text-primary hover:text-accent transition-colors font-semibold">
-                  Read Issue PDF <ExternalLink className="w-4 h-4" />
-                </a>
-                <div className="pt-4 border-t border-border/50">
-                  <p className="font-cormorant text-sm text-muted-foreground">© Doug Brown</p>
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          {/* 24 Tales */}
-          <Card className="group flex flex-col relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-700 hover:-translate-y-2">
-            <div className="relative aspect-[2/3] overflow-hidden bg-muted/20">
-              <img src={talesCover} alt="24 Tales" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="p-6 flex flex-col flex-1">
-              <h3 className="font-cormorant text-2xl font-bold text-foreground mb-4">24 Tales: More Appalachian Ghost Stories</h3>
-              <p className="font-cormorant text-base text-foreground/80 leading-relaxed mb-6 flex-1">
-                Featuring the non-fiction ghost story "The Stalking of Old Moses Wharton". Published by Howling Hills.
-              </p>
-              <div className="mt-auto space-y-4">
-                <a href="https://www.howlinghillspublishing.com/product/24-tales-more-appalachian-ghost-stories-legends-mysteries/12?cs=true&cst=custom" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-cormorant text-primary hover:text-accent transition-colors font-semibold">
-                  View on Howling Hills <ExternalLink className="w-4 h-4" />
-                </a>
-                <div className="pt-4 border-t border-border/50">
-                  <p className="font-cormorant text-sm text-muted-foreground">© Doug Brown</p>
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          {/* Dan Baker Audio */}
-          <Card className="group flex flex-col relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-700 hover:-translate-y-2 p-6">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="p-3 bg-primary/10 rounded-full">
-                <Headphones className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-cormorant text-xl font-bold text-foreground">Dan Baker Reads "Dammit"</h3>
-              </div>
-            </div>
-            <p className="font-cormorant text-base text-foreground/80 leading-relaxed mb-6 flex-1">
-              Baker, Dan. "Dammit." Dan Baker, December 8, 2024. Voice credit to Dan Baker.
-            </p>
-            <div className="mt-auto space-y-4">
-              <a href="https://jumpshare.com/share/kPCaL0YH2c7oAfgNGKNH" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-cormorant text-primary hover:text-accent transition-colors font-semibold">
-                Listen to Recording <ExternalLink className="w-4 h-4" />
-              </a>
-              <div className="pt-4 border-t border-border/50">
-                <p className="font-cormorant text-sm text-muted-foreground">© Doug Brown</p>
-              </div>
-            </div>
-          </Card>
-
-          {/* Short Story Today Audio */}
-          <Card className="group flex flex-col relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-700 hover:-translate-y-2 p-6">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="p-3 bg-primary/10 rounded-full">
-                <Headphones className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-cormorant text-xl font-bold text-foreground">Short Story Today: Episode 83</h3>
-              </div>
-            </div>
-            <p className="font-cormorant text-base text-foreground/80 leading-relaxed mb-6 flex-1">
-              Brown, Doug. "My Bohemian Baptism." Short Story Today, February 7, 2024. Featuring a reading of the title story.
-            </p>
-            <div className="mt-auto space-y-4">
-              <a href="https://shortstorytoday.com/search?s=83" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-cormorant text-primary hover:text-accent transition-colors font-semibold">
-                Listen to Episode <ExternalLink className="w-4 h-4" />
-              </a>
-              <div className="pt-4 border-t border-border/50">
-                <p className="font-cormorant text-sm text-muted-foreground">© Doug Brown</p>
-              </div>
-            </div>
-          </Card>
+          {showcaseItems.map(item => (
+            <FlipCard key={item.id} item={item} />
+          ))}
         </div>
 
         {/* Author description */}

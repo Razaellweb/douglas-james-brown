@@ -16,7 +16,7 @@ const AmazonIcon = ({ className }: { className?: string }) => (
 
 const Footer = () => {
   return (
-    <footer id="contact" className="relative bg-gradient-to-b from-background to-muted/20 border-t border-border/50">
+    <footer id="contact" className="relative bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           {/* Brand section */}
@@ -59,7 +59,7 @@ const Footer = () => {
         </div>
 
         {/* Social media and copyright */}
-        <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-4">
             <a 
               href="http://amazon.com/author/doug.brown.fiction"
@@ -84,9 +84,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-
-      {/* Decorative top border */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-primary/20" />
     </footer>
   );
 };
