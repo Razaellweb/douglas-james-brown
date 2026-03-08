@@ -27,7 +27,7 @@ const Navbar = () => {
     { name: "First Appearances", href: "#first-appearances", icon: BookOpen, isAnchor: true },
     { name: "Acclaim", href: "#acclaim", icon: MessageSquareQuote, isAnchor: true },
     { name: "Fandom", href: "#fandom", icon: ShoppingBag, isAnchor: true },
-    { name: "About", href: "#about", icon: User, isAnchor: true },
+    { name: "Author", href: "#about", icon: User, isAnchor: true },
     // { name: "Contact", href: "#about", icon: Mail, isAnchor: true },
   ];
 
@@ -53,7 +53,7 @@ const Navbar = () => {
               to="/"
               className="flex items-center transition-opacity hover:opacity-80 py-2 w-1/2 md:w-1/3 justify-start shrink-0"
             >
-              <div className="font-cormorant text-[7vw] sm:text-4xl md:text-[3.5vw] lg:text-[4vw] tracking-widest text-primary font-bold relative after:content-[''] after:absolute after:left-0 after:-bottom-2 after:w-full after:h-[2px] after:bg-primary/50 whitespace-nowrap">
+              <div className="font-cormorant text-[7vw] sm:text-4xl md:text-[3.5vw] lg:text-[4vw] tracking-widest text-primary font-bold relative whitespace-nowrap">
                 Doug Brown
               </div>
             </Link>

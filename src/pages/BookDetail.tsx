@@ -167,11 +167,11 @@ const BookDetail = () => {
         <section className="py-20 px-4 sm:px-6">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-14 space-y-4">
-              <div className="flex items-center justify-center gap-4">
+              {/* <div className="flex items-center justify-center gap-4">
                 <div className="h-px w-16 bg-gradient-to-r from-transparent to-accent/40" />
                 <Star className="w-6 h-6 text-accent" />
                 <div className="h-px w-16 bg-gradient-to-r from-accent/40 to-transparent" />
-              </div>
+              </div> */}
               <h2 className="font-cormorant text-3xl md:text-4xl font-bold text-primary">
                 What People Are Saying
               </h2>

@@ -1,178 +1,108 @@
-import { Star } from "lucide-react";
-import { Card } from "@/components/ui/card";
-
-interface Blurb {
-  id: string;
-  author: string;
-  title: React.ReactNode;
-  quote: React.ReactNode;
-  source?: string;
-}
-
-const editorialBlurbs: Blurb[] = [
-  // --- Gladfind and Other Monsters (Feb 2026) ---
-  {
-    id: "gladfind-1",
-    author: "Jon DiSavino",
-    title: "Host, Short Story Today",
-    quote: (
-      <>
-        <span className="text-secondary font-bold">While the title hints at horror,</span> these stories are more likely to make readers smile than shiver. Brown reminds us that where there's light, there will always be shadow — and that both can be beautiful.
-      </>
-    ),
-  },
-  {
-    id: "gladfind-2",
-    author: "Terry Shaw",
-    title: "Author & Publisher",
-    quote: (
-      <>
-        <span className="text-secondary font-bold">Quirky, original, and most of all — fun.</span> The lyrical writing is almost tactile in its intensity. Doug Brown has created something genuinely unique in the landscape of contemporary short fiction.
-      </>
-    ),
-  },
-  {
-    id: "gladfind-3",
-    author: "Thomas Tracy",
-    title: "Author",
-    quote: (
-      <>
-        From contemplative peaks to baleful troughs, Brown's range is extraordinary. <span className="text-secondary font-bold">His prose is tactile yet surreal, angelic and absurd — a writer working at the very top of his craft.</span>
-      </>
-    ),
-  },
-
-  // --- My Bohemian Baptism (Oct 2023) ---
-  {
-    id: "mbb-3",
-    author: "Jane Greer",
-    title: <>author, <span className="italic">Love like a Conflagration</span> and <span className="italic">The World as We Know It Is Falling Away</span></>,
-    quote: (
-      <>
-        <span className="text-secondary text-2xl md:text-3xl font-bold">Doug Brown's stories are weird.</span> He sees the world through some sort of custom microscope that reveals the weirdness of normal people and situations, and conveys that revelation in bracing, inventive language. This is his first collection; I can't wait for his second.
-      </>
-    ),
-  },
-  {
-    id: "mbb-2",
-    author: "Kenneth Garcia, PhD",
-    title: <>Award winning author of <span className="italic">Pilgrim River: A Spiritual Memoir</span></>,
-    quote: (
-      <>
-        <span className="text-secondary text-2xl md:text-3xl font-bold">Vivid characters and vibrant prose.</span> Doug Brown is an engaging writer and a keen observer of people and the circumstances in which they find themselves: whether the encounters of missionaries, donning white shirts and black ties, in an unfriendly neighborhood; a young boy who spends a summer with his quirky and aging hippie aunt and uncle; a tale about the discovery of grisly murders and their perpetrators; and a hilarious—but portentous—interaction between an ordinary, middle-aged citizen and a census agent of the all-seeing and intrusive Nanny State. The stories are alternately humorous, serious, and deeply moving. The endings surprise, and even startle. Brown knows how to spin a good yarn... I highly recommend this book.
-      </>
-    ),
-  },
-  {
-    id: "mbb-1",
-    author: "Mike Aquilina",
-    title: <>author, <span className="italic">Rhymes' Reasons</span></>,
-    quote: (
-      <>
-        Doug Brown's stories speak the Greek tragedies in a language we cannot help but understand. They turn the tools of Roman satire against the times we inhabit. In these qualities—as in his horrors and grotesqueries—he follows Flannery O'Connor, whom I had till now thought inimitable.<br/>
-        <span className="text-secondary text-2xl md:text-3xl font-bold mt-2 inline-block">These are works of genius.</span>
-      </>
-    ),
-  },
-];
-
 const EditorialPraise = () => {
   return (
-    <section id="acclaim" className="relative py-24 px-6 overflow-hidden">
+    <section id="acclaim" className="relative py-16 md:py-24 px-6 md:px-12 overflow-hidden bg-zinc-950 text-zinc-300">
       {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-primary/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/3 w-[300px] h-[300px] bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-zinc-950 to-background" />
 
-      <div className="container relative z-10 mx-auto max-w-6xl">
+      <div className="container relative z-10 mx-auto max-w-4xl">
         {/* Section header */}
-        <div className="text-center mb-16 space-y-4 animate-fade-in">
+        <div className="text-center mb-12 md:mb-16 space-y-4 animate-fade-in">
           <h2 className="font-cinzel text-4xl md:text-6xl font-bold text-foreground">
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Acclaim</span>
           </h2>
-          <p className="font-cormorant text-2xl text-foreground/90 max-w-2xl mx-auto italic font-medium">
-            What people are saying...
-          </p>
         </div>
 
-        {/* Blurbs grid */}
-        <div className="flex flex-col gap-12 max-w-4xl mx-auto">
-          {editorialBlurbs.map((blurb, index) => (
-            <div
-              key={blurb.id}
-              className="relative px-2 md:px-6 animate-fade-in"
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <div className="relative z-10 space-y-6">
-                <p className="font-cormorant text-xl text-foreground/90 leading-relaxed max-w-3xl">
-                  {blurb.quote}
-                </p>
-
-                <div className="flex justify-end pr-0 md:pr-4">
-                  <div className="text-right">
-                    <p className="font-cormorant text-lg text-foreground">
-                      {blurb.author}, {blurb.title}
-                    </p>
-                  </div>
-                </div>
-              </div>
+        {/* Blurbs container */}
+        <div className="flex flex-col gap-12 md:gap-20 mx-auto">
+          {/* Review 1 */}
+          <div className="animate-fade-in space-y-3 md:space-y-4">
+            <p className="font-cormorant text-xl md:text-[1.65rem] leading-[1.4] text-justify text-zinc-100/90 tracking-wide">
+              <span className="text-primary font-bold text-2xl md:text-[2.2rem] pr-2 tracking-normal" style={{ color: '#D4AF37' }}>
+                Doug Brown's stories are weird.
+              </span> 
+              He sees the world through some sort of custom microscope that reveals the weirdness of normal people and situations, and conveys that revelation in bracing, inventive language. This is his first collection; I can't wait for his second.
+            </p>
+            <div className="text-right font-cormorant text-lg md:text-[1.35rem] leading-snug text-zinc-300/90 tracking-wide pt-2">
+              —Jane Greer, author, <span className="italic">Love like a Conflagration</span><br />
+              and <span className="italic">The World as We Know It Is Falling Away</span>
             </div>
-          ))}
-        </div>
-
-        {/* Honors grid wrapper */}
-        <div className="mt-32 pt-24 animate-fade-in" style={{ animationDelay: '300ms' }}>
-          <div className="flex items-center gap-4 mb-10">
-            <h3 className="font-cinzel text-3xl font-bold text-foreground">Awards & Honors</h3>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            <Card className="p-6 bg-card/40 border-border/50 backdrop-blur-sm group hover:border-primary/40 transition-colors flex items-start gap-4">
-              <div className="mt-1">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Star className="w-5 h-5 text-primary group-hover:fill-primary/20 transition-all" />
-                </div>
-              </div>
-              <div>
-                <p className="font-cormorant text-lg text-foreground/90 mb-1">
-                  2023, <span className="italic">"Cats"</span>
-                </p>
-                <p className="font-cinzel text-accent font-bold">
-                  Half and One Khasi Hills Award for Fiction Shortlist
-                </p>
-              </div>
-            </Card>
+          {/* Review 2 */}
+          <div className="animate-fade-in space-y-3 md:space-y-4" style={{ animationDelay: "100ms" }}>
+            <p className="font-cormorant text-xl md:text-[1.65rem] leading-[1.4] text-justify text-zinc-100/90 tracking-wide">
+              <span className="text-primary font-bold text-2xl md:text-[2.2rem] pr-2 tracking-normal" style={{ color: '#D4AF37' }}>
+                Vivid characters and vibrant prose.
+              </span> 
+              Doug Brown is an engaging writer and a keen observer of people and the circumstances in which they find themselves: whether the encounters of missionaries, donning white shirts and black ties, in an unfriendly neighborhood; a young boy who spends a summer with his quirky and aging hippie aunt and uncle; a tale about the discovery of grisly murders and their perpetrators; and a hilarious—but portentous—interaction between an ordinary, middle-aged citizen and a census agent of the all-seeing and intrusive Nanny State. The stories are alternately humorous, serious, and deeply moving. The endings surprise, and even startle. Brown knows how to spin a good yarn... I highly recommend this book.
+            </p>
+            <div className="text-right font-cormorant text-lg md:text-[1.35rem] leading-snug text-zinc-300/90 tracking-wide pt-2">
+              —Kenneth Garcia, PhD<br />
+              Award winning author of<br />
+              <span className="italic">Pilgrim River: A Spiritual Memoir</span>
+            </div>
+          </div>
 
-            <Card className="p-6 bg-card/40 border-border/50 backdrop-blur-sm group hover:border-primary/40 transition-colors flex items-start gap-4">
-              <div className="mt-1">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Star className="w-5 h-5 text-primary group-hover:fill-primary/20 transition-all" />
-                </div>
+          {/* Review 3 */}
+          <div className="animate-fade-in space-y-3 md:space-y-4" style={{ animationDelay: "200ms" }}>
+            <div className="font-cormorant text-xl md:text-[1.65rem] leading-[1.4] text-justify text-zinc-100/90 tracking-wide">
+              Doug Brown's stories speak the Greek tragedies in a language we cannot help but understand. They turn the tools of Roman satire against the times we inhabit. In these qualities—as in his horrors and grotesqueries—he follows Flannery O'Connor, whom I had till now thought inimitable.
+              <div className="text-primary font-bold text-2xl md:text-[2.2rem] mt-3 tracking-normal" style={{ color: '#D4AF37' }}>
+                These are works of genius.
               </div>
-              <div>
-                <p className="font-cormorant text-lg text-foreground/90 mb-1">
-                  1984
-                </p>
-                <p className="font-cinzel text-accent font-bold">
-                  Katie Lehman Award for Overall Excellence
-                </p>
-              </div>
-            </Card>
+            </div>
+            <div className="text-right font-cormorant text-lg md:text-[1.35rem] leading-snug text-zinc-300/90 tracking-wide pt-2">
+              —Mike Aquilina, author, <span className="italic">Rhymes' Reason</span>
+            </div>
+          </div>
+
+          {/* Review 4 */}
+          <div className="animate-fade-in space-y-3 md:space-y-4" style={{ animationDelay: "300ms" }}>
+            <p className="font-cormorant text-xl md:text-[1.65rem] leading-[1.4] text-justify text-zinc-100/90 tracking-wide">
+              <span className="text-primary font-bold text-2xl md:text-[2.2rem] pr-2 tracking-normal" style={{ color: '#D4AF37' }}>
+                Quirky, original, and most of all—fun.
+              </span> 
+              Doug Brown's second collection, <span className="italic">GladFind and Other Monsters</span>, features lyrical writing that is almost tactile in its intensity. <span className="font-bold text-primary" style={{ color: '#D4AF37' }}>Sit back, buckle up, and enjoy!</span>
+            </p>
+            <div className="text-right font-cormorant text-lg md:text-[1.35rem] leading-snug text-zinc-300/90 tracking-wide pt-2">
+              —Terry Shaw, author, <span className="italic">The Way Life Should Be</span>; and publisher, Howling Hills Publishing
+            </div>
+          </div>
+
+          {/* Review 5 */}
+          <div className="animate-fade-in space-y-3 md:space-y-4" style={{ animationDelay: "400ms" }}>
+            <p className="font-cormorant text-xl md:text-[1.65rem] leading-[1.4] text-justify text-zinc-100/90 tracking-wide">
+              <span className="text-primary font-bold text-2xl md:text-[2.2rem] pr-2 tracking-normal" style={{ color: '#D4AF37' }}>
+                Doug Brown's stories
+              </span> 
+              run a range—from contemplative peaks to baleful troughs, which <span className="font-bold text-primary" style={{ color: '#D4AF37' }}>swallow the heart and drain it dry for a spell.</span> On the way up—back down and around—you'll run across staggered plateaus: <span className="font-bold text-primary" style={{ color: '#D4AF37' }}>tactile yet surreal, angelic and absurd.</span>
+            </p>
+            <div className="text-right font-cormorant text-lg md:text-[1.35rem] leading-snug text-zinc-300/90 tracking-wide pt-2">
+              —Thomas Tracy, author, <span className="italic">The Kings of Cork Lane: A Baseball Memoir</span>
+            </div>
+          </div>
+
+          {/* Review 6 */}
+          <div className="animate-fade-in space-y-3 md:space-y-4" style={{ animationDelay: "500ms" }}>
+            <p className="font-cormorant text-xl md:text-[1.65rem] leading-[1.4] text-justify text-zinc-100/90 tracking-wide">
+              While the title of Doug Brown's second collection may be hinting at horror, there's more here to make you smile than shiver. Yes, you'll find <span className="font-bold text-primary" style={{ color: '#D4AF37' }}>closet monsters and shapeshifters and ghosts</span>—but they're mastered by the children and adults in these stories in ways that <span className="font-bold text-primary" style={{ color: '#D4AF37' }}>will surprise and delight you.</span> With an assured hand, Doug Brown reminds us that <span className="font-bold text-primary" style={{ color: '#D4AF37' }}>where there's light, there will always be shadow</span>—but there's a good chance that <span className="font-bold text-primary" style={{ color: '#D4AF37' }}>the shadows may also be holding some of the answers we seek.</span>
+            </p>
+            <div className="text-right font-cormorant text-lg md:text-[1.35rem] leading-snug text-zinc-300/90 tracking-wide pt-2">
+              —Jon DiSavino, podcast producer and host, <span className="italic">Short Story Today</span>
+            </div>
           </div>
         </div>
 
         {/* Amazon link */}
-        <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: "500ms" }}>
+        <div className="text-center mt-16 md:mt-20 animate-fade-in" style={{ animationDelay: "600ms" }}>
           <a
             href="http://amazon.com/author/doug.brown.fiction"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-cormorant text-lg text-muted-foreground hover:text-primary transition-colors duration-300"
+            className="inline-flex items-center gap-2 font-cormorant text-lg md:text-xl text-primary/80 hover:text-primary transition-colors duration-300"
           >
             Read more on Amazon
-            <span className="text-sm">→</span>
+            <span className="text-lg">→</span>
           </a>
         </div>
       </div>
