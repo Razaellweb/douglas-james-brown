@@ -121,11 +121,11 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
         >
           {item.coverUrl ? (
             item.type === 'book' ? (
-              <div className="w-full h-full flex items-center justify-center p-6" style={{ background: 'linear-gradient(135deg, hsl(42 60% 22%), hsl(38 50% 18%))' }}>
+              <div className="w-full h-full flex items-center justify-center p-10 bg-[#E1C16E] shadow-[inset_0_0_20px_rgba(0,0,0,0.15)]">
                 <img 
                   src={item.coverUrl} 
                   alt={item.title} 
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]" 
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-[0_8px_24px_rgba(0,0,0,0.4)]" 
                 />
               </div>
             ) : (
