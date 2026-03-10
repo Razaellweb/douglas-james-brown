@@ -50,7 +50,7 @@ const About = () => {
                   rel="noopener noreferrer"
                 >
                   <Button className="font-cormorant text-lg font-bold px-4 py-2 border border-primary/50 bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground rounded transition-all shadow-[0_0_10px_rgba(212,175,55,0.15)] hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] whitespace-nowrap gap-2 h-auto">
-                    Follow on X
+                    Follow on
                     <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
                   </Button>
                 </a>
@@ -73,11 +73,10 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Gallery CTA moved under photos */}
               <div className="w-full mt-8 pt-4 lg:pr-12 lg:text-right">
                 <a href="/gallery">
-                  <Button className="w-auto px-8 font-cormorant text-xl py-6 bg-primary hover:bg-accent transition-all duration-300 text-primary-foreground border-0 gap-2 shadow-md">
-                    More Photos <span>→</span>
+                  <Button className="font-cormorant text-lg font-bold px-4 py-2 border border-primary/50 bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground rounded transition-all shadow-[0_0_10px_rgba(212,175,55,0.15)] hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] whitespace-nowrap gap-2 h-auto">
+                    More Photos
                   </Button>
                 </a>
               </div>

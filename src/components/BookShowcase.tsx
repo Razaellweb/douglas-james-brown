@@ -108,7 +108,11 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
         
         {/* Front of card */}
         <div 
-          className="absolute inset-0 rounded-xl overflow-hidden bg-card/50 border border-border/50 shadow-lg group-hover:shadow-primary/20 group-hover:border-primary/50 transition-all duration-500 flex flex-col items-center justify-center z-10"
+          className={`absolute inset-0 rounded-xl overflow-hidden shadow-lg transition-all duration-500 flex flex-col items-center justify-center z-10 ${
+            item.type === 'book'
+              ? 'bg-[#c8962a]/20 border border-[#c8962a]/50 group-hover:border-[#c8962a]/80 group-hover:shadow-[0_0_20px_rgba(200,150,42,0.25)]'
+              : 'bg-card/50 border border-border/50 group-hover:shadow-primary/20 group-hover:border-primary/50'
+          }`}
           style={{ 
             backfaceVisibility: 'hidden', 
             WebkitBackfaceVisibility: 'hidden',
@@ -116,11 +120,21 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
           }}
         >
           {item.coverUrl ? (
-            <img 
-              src={item.coverUrl} 
-              alt={item.title} 
-              className={`w-full h-full ${item.type === 'book' ? 'object-contain p-4' : 'object-cover'} group-hover:scale-105 transition-transform duration-700`} 
-            />
+            item.type === 'book' ? (
+              <div className="w-full h-full flex items-center justify-center p-6" style={{ background: 'linear-gradient(135deg, hsl(42 60% 22%), hsl(38 50% 18%))' }}>
+                <img 
+                  src={item.coverUrl} 
+                  alt={item.title} 
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]" 
+                />
+              </div>
+            ) : (
+              <img 
+                src={item.coverUrl} 
+                alt={item.title} 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              />
+            )
           ) : (
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 flex flex-col items-center justify-center p-8 text-center group-hover:from-primary/30 group-hover:to-secondary/30 transition-colors duration-500 rounded-xl">
               <div className="absolute inset-0 bg-gradient-gothic opacity-30 mix-blend-overlay rounded-xl" />
@@ -202,9 +216,9 @@ const BookShowcase = () => {
           <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-primary">
             Bookshelf
           </h2>
-          <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
+          {/* <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
             Stories that expose the strangeness beneath the quaint ordinary
-          </p>
+          </p> */}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -214,7 +228,7 @@ const BookShowcase = () => {
         </div>
 
         {/* Author description */}
-        <div className="mt-20 text-center animate-fade-in" style={{ animationDelay: '600ms' }}>
+        {/* <div className="mt-20 text-center animate-fade-in" style={{ animationDelay: '600ms' }}>
           <div className="relative inline-block px-12 py-6 rounded-2xl bg-gradient-to-br from-muted/40 to-muted/20 border border-accent/20 backdrop-blur-sm">
             <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-secondary/5 rounded-2xl" />
             <div className="relative space-y-2">
@@ -227,7 +241,7 @@ const BookShowcase = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

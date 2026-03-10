@@ -65,7 +65,7 @@ const LinerNotes = () => {
         </div>
 
         {/* Content - My Bohemian Baptism */}
-        <div className="relative p-4 sm:p-6 md:p-14 rounded-3xl bg-gradient-to-br from-muted/50 to-muted/20 border border-primary/20 backdrop-blur-sm animate-fade-in space-y-7 font-sans text-sm md:text-[15px] leading-[1.6] text-foreground/90 mb-12">
+        <div className="relative p-4 sm:p-6 md:p-14 rounded-3xl bg-gradient-to-br from-muted/50 to-muted/20 border border-primary/20 backdrop-blur-sm animate-fade-in space-y-7 font-cormorant text-lg md:text-xl text-foreground/90 leading-relaxed mb-12">
           <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
           
           <div className="relative space-y-7">
@@ -124,9 +124,9 @@ const LinerNotes = () => {
         </div>
 
         {/* Copyright */}
-        <p className="mt-10 text-center font-cormorant text-base text-foreground/80 tracking-wide font-medium">
+        {/* <p className="mt-10 text-center font-cormorant text-base text-foreground/80 tracking-wide font-medium">
           © 2026 by Doug Brown
-        </p>
+        </p> */}
       </div>
     </section>
   );

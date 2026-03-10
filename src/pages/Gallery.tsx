@@ -66,9 +66,9 @@ const Gallery = () => {
             Back to Home
           </Link>
           
-          <h1 className="font-cormorant text-2xl md:text-4xl text-foreground font-bold italic">
+          {/* <h1 className="font-cormorant text-2xl md:text-4xl text-foreground font-bold italic">
             Author Gallery
-          </h1>
+          </h1> */}
         </div>
 
         {/* Gallery Grid */}
