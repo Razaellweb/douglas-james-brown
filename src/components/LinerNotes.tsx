@@ -23,7 +23,7 @@ const LinerNotes = () => {
           <div className="absolute bottom-0 left-0 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
 
           <div className="relative space-y-7">
-            <h3 className="font-cormorant text-3xl font-bold text-foreground border-b border-accent/20 pb-4">
+            <h3 className="font-cormorant text-3xl font-bold text-foreground border-b border-accent/20 pb-4 italic">
               Gladfind and Other Monsters
             </h3>
             <p>
@@ -69,7 +69,7 @@ const LinerNotes = () => {
           <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
           
           <div className="relative space-y-7">
-            <h3 className="font-cormorant text-2xl font-normal text-foreground border-b border-primary/20 pb-4 italic">
+            <h3 className="font-cormorant text-3xl font-bold text-foreground border-b border-primary/20 pb-4 italic">
               My Bohemian Baptism
             </h3>
             <p>

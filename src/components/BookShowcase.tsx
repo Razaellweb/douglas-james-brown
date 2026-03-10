@@ -17,6 +17,8 @@ interface ShowcaseItem {
   externalLink?: string;
   externalLinkText?: string;
   author: string;
+  copyright?: string;
+  amazonLink?: string;
 }
 
 const showcaseItems: ShowcaseItem[] = [
@@ -28,7 +30,9 @@ const showcaseItems: ShowcaseItem[] = [
     type: "book",
     coverUrl: books[1].image,
     link: "/book/gladfind-and-other-monsters",
-    author: "© Doug Brown"
+    author: "© Doug Brown",
+    copyright: "© 2006 Doug Brown — Gladfind",
+    amazonLink: "https://www.amazon.com/Gladfind-Other-Monsters-Short-Collection-ebook/dp/B0GQP39DQL"
   },
   {
     id: "mbb",
@@ -38,7 +42,9 @@ const showcaseItems: ShowcaseItem[] = [
     type: "book",
     coverUrl: books[0].image,
     link: "/book/my-bohemian-baptism",
-    author: "© Doug Brown"
+    author: "© Doug Brown",
+    copyright: "© 2003 Doug Brown — MBB",
+    amazonLink: "https://www.amazon.com/My-Bohemian-Baptism-Then-Some-ebook/dp/B0CVFSDDP4"
   },
   {
     id: "halfandone",
@@ -149,7 +155,14 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
           </div>
 
           <div className="relative z-10 mt-auto pt-6 space-y-4">
-            {item.link ? (
+            {item.amazonLink ? (
+              <a href={item.amazonLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
+                <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  View on Amazon
+                </Button>
+              </a>
+            ) : item.link ? (
               <Link to={item.link} onClick={(e) => e.stopPropagation()} className="block w-full">
                 <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
                   <BookOpen className="w-4 h-4 mr-2" />
@@ -166,7 +179,7 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
             ) : null}
             
             <p className="font-cormorant text-sm text-center text-muted-foreground pt-4 border-t border-border/50">
-              {item.author}
+              {item.copyright || item.author}
             </p>
           </div>
         </div>

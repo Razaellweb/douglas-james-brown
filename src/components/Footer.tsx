@@ -21,7 +21,7 @@ const Footer = () => {
     <footer id="contact" className="relative bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-6 py-16 flex flex-col items-center justify-center space-y-12">
         {/* Navigation Buttons mirroring Top Nav */}
-        <div className="flex flex-wrap justify-center gap-4">
+        {/* <div className="flex flex-wrap justify-center gap-4">
           {navLinks.map((link) => (
             <button
               key={link.name}
@@ -31,7 +31,7 @@ const Footer = () => {
               {link.name}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Copyright */}
         <p className="font-cormorant text-muted-foreground text-sm">

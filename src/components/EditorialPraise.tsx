@@ -94,7 +94,7 @@ const EditorialPraise = () => {
         </div>
 
         {/* Amazon link */}
-        <div className="text-center mt-16 md:mt-20 animate-fade-in" style={{ animationDelay: "600ms" }}>
+        {/* <div className="text-center mt-16 md:mt-20 animate-fade-in" style={{ animationDelay: "600ms" }}>
           <a
             href="http://amazon.com/author/doug.brown.fiction"
             target="_blank"
@@ -104,6 +104,46 @@ const EditorialPraise = () => {
             Read more on Amazon
             <span className="text-lg">→</span>
           </a>
+        </div> */}
+        
+        {/* Awards & Honors Section */}
+        <div className="mt-24 md:mt-32 pt-16 border-t border-zinc-800/50">
+          <div className="text-center mb-12">
+            <h3 className="font-cinzel text-2xl md:text-3xl font-bold text-primary mb-2" style={{ color: '#D4AF37' }}>
+              Awards & Honors
+            </h3>
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto opacity-50" />
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {[
+              "Khasi Hill Shortlist",
+              "Globe Soup Honorable Mention",
+              "Katie Lehman"
+            ].map((award, index) => (
+              <div 
+                key={index} 
+                className="group relative flex flex-col items-center text-center p-6 rounded-xl bg-zinc-900/40 border border-zinc-800/50 hover:border-primary/30 transition-all duration-500 animate-fade-in"
+                style={{ animationDelay: `${600 + (index * 100)}ms` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+                <div className="mb-4 text-primary opacity-60 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 15l-2 5 2 2 2-2-2-5z" />
+                    <path d="M15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z" />
+                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z" />
+                    <path d="M8 8a4 4 0 0 1 8 0" />
+                  </svg>
+                </div>
+                <p className="font-cormorant text-xl md:text-2xl font-bold text-zinc-100 group-hover:text-primary transition-colors duration-300" style={{ color: index === 2 ? '#D4AF37' : 'inherit' }}>
+                  {award}
+                </p>
+                {index === 2 && (
+                  <span className="mt-2 font-cinzel text-xs uppercase tracking-widest text-primary/70">Winner</span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

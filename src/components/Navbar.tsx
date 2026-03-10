@@ -27,7 +27,7 @@ const Navbar = () => {
     { name: "First Appearances", href: "#first-appearances", icon: BookOpen, isAnchor: true },
     { name: "Acclaim", href: "#acclaim", icon: MessageSquareQuote, isAnchor: true },
     { name: "Fandom", href: "#fandom", icon: ShoppingBag, isAnchor: true },
-    { name: "Author", href: "#about", icon: User, isAnchor: true },
+    { name: "Author & Recluse", href: "#about", icon: User, isAnchor: true },
     // { name: "Contact", href: "#about", icon: Mail, isAnchor: true },
   ];
 
