@@ -40,7 +40,7 @@ const About = () => {
                   rel="noopener noreferrer"
                 >
                   <Button className="font-cormorant text-lg font-bold px-4 py-2 border border-primary/50 bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground rounded transition-all shadow-[0_0_10px_rgba(212,175,55,0.15)] hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] whitespace-nowrap gap-2 h-auto">
-                    <ExternalLink className="w-4 h-4" />
+                    {/* <ExternalLink className="w-4 h-4" /> */}
                     Amazon Author Page
                   </Button>
                 </a>

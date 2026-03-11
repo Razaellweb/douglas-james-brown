@@ -7,7 +7,7 @@ const EditorialPraise = () => {
       <div className="container relative z-10 mx-auto max-w-4xl">
         {/* Section header */}
         <div className="text-center mb-12 md:mb-16 space-y-4 animate-fade-in">
-          <h2 className="font-cinzel text-4xl md:text-6xl font-bold text-foreground">
+          <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-foreground">
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Acclaim</span>
           </h2>
         </div>
@@ -107,22 +107,20 @@ const EditorialPraise = () => {
         </div> */}
         
         {/* Awards & Honors Section */}
-        <div className="mt-24 md:mt-32 pt-16 border-t border-zinc-800/50">
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 animate-fade-in" style={{ animationDelay: '600ms' }}>
+        <div className="mt-16 md:mt-20">
+          <div className="flex flex-col items-center gap-6 md:gap-8 animate-fade-in" style={{ animationDelay: '600ms' }}>
             {[
-              { year: "2023", org: "Khasi Hills Creative Prize for Fiction", honor: "Shortlist", title: "\"Cats\"" },
-              { year: "2022", org: "GLOBE SOUP Short Story Competition", honor: "Honorable Mention", title: "\"Wendy Wafers Tart and Tangy\"" },
-              { year: "1984", org: "Katie Lehman Award for Fiction", honor: "Winner", title: "\"Simple Brain Fever\"" },
+              "2023 Khasi Hills Creative Prize for Fiction, Shortlist -- \"Cats\"",
+              "2022 GLOBE SOUP Short Story Competition, Honorable Mention -- \"Wendy Wafers Tart and Tangy\"",
+              "1984 Katie Lehman Award for Fiction, First Place -- \"Simple Brain Fever\"",
             ].map((award, index) => (
               <div
                 key={index}
-                className="group relative px-6 py-4 rounded-lg bg-zinc-900/60 border border-zinc-700/40 hover:border-primary/40 transition-all duration-300 animate-fade-in"
+                className="w-full text-center animate-fade-in"
                 style={{ animationDelay: `${600 + index * 100}ms` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-                <p className="relative font-cormorant text-base md:text-lg text-zinc-200 leading-snug text-center">
-                  <span className="font-cinzel text-xs text-primary/70 tracking-widest block mb-1">{award.year} · {award.honor}</span>
-                  {award.org} — {award.title}
+                <p className="font-cormorant text-xl md:text-[1.65rem] leading-relaxed text-zinc-200 tracking-wide">
+                  {award}
                 </p>
               </div>
             ))}
