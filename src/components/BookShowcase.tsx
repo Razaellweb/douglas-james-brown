@@ -108,10 +108,10 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
         
         {/* Front of card */}
         <div 
-          className={`absolute inset-0 rounded-xl overflow-hidden shadow-lg transition-all duration-500 flex flex-col items-center justify-center z-10 ${
-            item.type === 'book'
-              ? 'bg-[#c8962a]/20 border border-[#c8962a]/50 group-hover:border-[#c8962a]/80 group-hover:shadow-[0_0_20px_rgba(200,150,42,0.25)]'
-              : 'bg-card/50 border border-border/50 group-hover:shadow-primary/20 group-hover:border-primary/50'
+          className={`absolute inset-0 rounded-xl overflow-hidden transition-all duration-500 flex flex-col items-center justify-center z-10 ${
+            item.type === 'book' 
+              ? "bg-primary/10 border border-primary/40 shadow-lg group-hover:shadow-primary/30 group-hover:border-primary/60" 
+              : "bg-card/50 border border-border/50 shadow-lg group-hover:shadow-primary/20 group-hover:border-primary/50"
           }`}
           style={{ 
             backfaceVisibility: 'hidden', 
@@ -120,21 +120,11 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
           }}
         >
           {item.coverUrl ? (
-            item.type === 'book' ? (
-              <div className="w-full h-full flex items-center justify-center p-10 bg-[#E1C16E] shadow-[inset_0_0_20px_rgba(0,0,0,0.15)]">
-                <img 
-                  src={item.coverUrl} 
-                  alt={item.title} 
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-[0_8px_24px_rgba(0,0,0,0.4)]" 
-                />
-              </div>
-            ) : (
-              <img 
-                src={item.coverUrl} 
-                alt={item.title} 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-              />
-            )
+            <img 
+              src={item.coverUrl} 
+              alt={item.title} 
+              className={`w-full h-full ${item.type === 'book' ? 'object-contain p-4' : 'object-cover'} group-hover:scale-105 transition-transform duration-700`} 
+            />
           ) : (
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 flex flex-col items-center justify-center p-8 text-center group-hover:from-primary/30 group-hover:to-secondary/30 transition-colors duration-500 rounded-xl">
               <div className="absolute inset-0 bg-gradient-gothic opacity-30 mix-blend-overlay rounded-xl" />
