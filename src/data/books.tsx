@@ -51,9 +51,9 @@ The stories feature a subtle accretion of place, time, and local flavor, creatin
 
 Deceptively simple, these stories deal with deep themes: the relationship of time and eternity, the reality of judgment, the personification of evil, the permanence of morals, and the compromises life forces on the living.
 
-Winner of the Katie Lehman Award for Fiction, Brown's debut announces a distinctive voice in American short fiction — one that is at once whimsical and unsettling, absurd and emotionally devastating.`,
+Brown's debut announces a distinctive voice in American short fiction — one that is at once whimsical and unsettling, absurd and emotionally devastating.`,
     category: "Short Stories • Literary Fiction",
-    badge: "Katie Lehman Award",
+    badge: "",
     sampleChapter: `The house on Birch Street had been empty for eleven years, which was long enough for the neighborhood to forget what it looked like with curtains. Long enough for the maples to grow bold, sending roots under the foundation like thieves testing a lock.
 
 Margaret noticed it first — not the roots, but the light. A thin yellow line beneath the front door, visible only if you were walking your dog at exactly 2:17 in the morning, which Margaret was, because Chaplin had developed an old man's bladder and an old man's stubbornness about where he'd relieve it.

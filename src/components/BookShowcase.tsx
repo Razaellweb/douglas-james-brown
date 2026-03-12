@@ -19,6 +19,7 @@ interface ShowcaseItem {
   author: string;
   copyright?: string;
   amazonLink?: string;
+  serifPressLink?: string;
 }
 
 const showcaseItems: ShowcaseItem[] = [
@@ -26,25 +27,25 @@ const showcaseItems: ShowcaseItem[] = [
     id: "gladfind",
     title: "Gladfind and Other Monsters",
     subtitle: "A Short Story Collection",
-    description: "A second collection proving his debut was no accident. Brown's fiction ranges from whimsical to wistful, from absurd to unsettling.",
+    description: "A second collection proving his debut was no accident.",
     type: "book",
     coverUrl: books[1].image,
     link: "/book/gladfind-and-other-monsters",
     author: "© Doug Brown",
-    copyright: "© 2006 Doug Brown — Gladfind",
+    copyright: "(C) 2026 Doug Brown",
     amazonLink: "https://www.amazon.com/Gladfind-Other-Monsters-Short-Collection-ebook/dp/B0GQP39DQL"
   },
   {
     id: "mbb",
     title: "My Bohemian Baptism and Then Some",
-    subtitle: "Winner of the Katie Lehman Award",
     description: "A stunning debut that establishes Brown as a voice of New England Gothic.",
     type: "book",
     coverUrl: books[0].image,
     link: "/book/my-bohemian-baptism",
     author: "© Doug Brown",
-    copyright: "© 2003 Doug Brown — MBB",
-    amazonLink: "https://www.amazon.com/My-Bohemian-Baptism-Then-Some-ebook/dp/B0CVFSDDP4"
+    copyright: "(C) 2023 Doug Brown",
+    amazonLink: "https://www.amazon.com/My-Bohemian-Baptism-Then-Some-ebook/dp/B0CVFSDDP4",
+    serifPressLink: "https://serifpress.com/2023/11/14/my-bohemian-baptism-and-then-some-by-doug-brown/#more-150"
   },
   {
     id: "halfandone",
@@ -59,13 +60,13 @@ const showcaseItems: ShowcaseItem[] = [
   },
   {
     id: "24tales",
-    title: "24 Tales: More Appalachian Ghost Stories",
-    subtitle: "Published by Howling Hills",
+    title: "24 Tales: More Appalachian Ghost Stories, Legends & Mysteries",
+    subtitle: "From Howling Hills Publishing",
     description: "Featuring the non-fiction ghost story \"The Stalking of Old Moses Wharton\".",
     type: "magazine",
     coverUrl: talesCover,
     externalLink: "https://www.howlinghillspublishing.com/product/24-tales-more-appalachian-ghost-stories-legends-mysteries/12?cs=true&cst=custom",
-    externalLinkText: "View on Howling Hills",
+    externalLinkText: "On Howling Hills Publishing",
     author: "© Doug Brown"
   },
   {
@@ -74,7 +75,7 @@ const showcaseItems: ShowcaseItem[] = [
     description: "Baker, Dan. \"Dammit.\" Dan Baker, December 8, 2024. Voice credit to Dan Baker.",
     type: "audio",
     externalLink: "https://jumpshare.com/share/kPCaL0YH2c7oAfgNGKNH",
-    externalLinkText: "Listen to Recording",
+    externalLinkText: "Listen",
     author: "© Doug Brown"
   },
   {
@@ -83,7 +84,7 @@ const showcaseItems: ShowcaseItem[] = [
     description: "Brown, Doug. \"My Bohemian Baptism.\" Short Story Today, February 7, 2024. Featuring a reading of the title story.",
     type: "audio",
     externalLink: "https://shortstorytoday.com/search?s=83",
-    externalLinkText: "Listen to Episode",
+    externalLinkText: "Listen",
     author: "© Doug Brown"
   }
 ];
@@ -158,12 +159,31 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
             </p>
           </div>
 
-          <div className="relative z-10 mt-auto pt-6 space-y-4">
+          <div className="relative z-10 mt-auto pt-6 space-y-3">
+            {item.type === 'book' && (
+              item.serifPressLink ? (
+                <a href={item.serifPressLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
+                  <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
+                    On Serif Press
+                  </Button>
+                </a>
+              ) : (
+                <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
+                  On Serif Press
+                </Button>
+              )
+            )}
+
             {item.amazonLink ? (
               <a href={item.amazonLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
                 <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  View on Amazon
+                  On Amazon
+                </Button>
+              </a>
+            ) : item.externalLink ? (
+              <a href={item.externalLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
+                <Button variant="outline" className={`w-full border-primary/50 hover:bg-primary/10 font-cormorant text-lg h-12 ${item.type === 'audio' ? 'text-primary' : 'text-foreground'}`}>
+                  {item.externalLinkText || "Visit Link"}
                 </Button>
               </a>
             ) : item.link ? (
@@ -173,13 +193,6 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
                   View Details
                 </Button>
               </Link>
-            ) : item.externalLink ? (
-              <a href={item.externalLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
-                <Button variant="outline" className={`w-full border-primary/50 hover:bg-primary/10 font-cormorant text-lg h-12 ${item.type === 'audio' ? 'text-primary' : 'text-foreground'}`}>
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  {item.externalLinkText || "Visit Link"}
-                </Button>
-              </a>
             ) : null}
             
             <p className="font-cormorant text-sm text-center text-muted-foreground pt-4 border-t border-border/50">
