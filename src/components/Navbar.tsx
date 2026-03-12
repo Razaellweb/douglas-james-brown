@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, BookOpen, User, Mail, ShoppingBag, MessageSquareQuote } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
@@ -10,7 +10,8 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { getItemCount } = useCartStore();
   const itemCount = getItemCount();
-
+  const navigate = useNavigate();
+  const location = useLocation();
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -19,7 +20,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const location = useLocation();
   const isHomePage = location.pathname === "/";
 
   const navLinks = [
@@ -36,7 +36,7 @@ const Navbar = () => {
       const element = document.querySelector(href);
       element?.scrollIntoView({ behavior: "smooth" });
     } else {
-      window.location.href = "/" + href;
+      navigate("/" + href);
     }
     setIsMobileMenuOpen(false);
   };

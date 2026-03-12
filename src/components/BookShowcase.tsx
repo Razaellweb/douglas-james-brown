@@ -32,7 +32,7 @@ const showcaseItems: ShowcaseItem[] = [
     coverUrl: books[1].image,
     link: "/book/gladfind-and-other-monsters",
     author: "© Doug Brown",
-    copyright: "(C) 2026 Doug Brown",
+    copyright: "© 2026 Doug Brown",
     amazonLink: "https://www.amazon.com/Gladfind-Other-Monsters-Short-Collection-ebook/dp/B0GQP39DQL"
   },
   {
@@ -43,31 +43,33 @@ const showcaseItems: ShowcaseItem[] = [
     coverUrl: books[0].image,
     link: "/book/my-bohemian-baptism",
     author: "© Doug Brown",
-    copyright: "(C) 2023 Doug Brown",
+    copyright: "© 2023 Doug Brown",
     amazonLink: "https://www.amazon.com/My-Bohemian-Baptism-Then-Some-ebook/dp/B0CVFSDDP4",
     serifPressLink: "https://serifpress.com/2023/11/14/my-bohemian-baptism-and-then-some-by-doug-brown/#more-150"
   },
   {
     id: "halfandone",
-    title: "Half And One Magazine",
+    title: "Half and One Magazine",
     subtitle: "Vol 1, Issue 3",
     description: "Featuring the acclaimed short story \"Cats\".",
     type: "magazine",
     coverUrl: halfAndOneCover,
     externalLink: "https://halfandone.com/wp-content/uploads/2025/10/Half-And-One-Magazine-Vol1-Iss3.pdf",
-    externalLinkText: "Read Issue PDF",
+    externalLinkText: "On Half and One",
+    amazonLink: "#",
     author: "© Doug Brown"
   },
   {
     id: "24tales",
     title: "24 Tales: More Appalachian Ghost Stories, Legends & Mysteries",
     subtitle: "From Howling Hills Publishing",
-    description: "Featuring the non-fiction ghost story \"The Stalking of Old Moses Wharton\".",
+    description: "",
     type: "magazine",
     coverUrl: talesCover,
     externalLink: "https://www.howlinghillspublishing.com/product/24-tales-more-appalachian-ghost-stories-legends-mysteries/12?cs=true&cst=custom",
     externalLinkText: "On Howling Hills Publishing",
-    author: "© Doug Brown"
+    amazonLink: "https://www.amazon.com/24-Tales-Appalachian-Stories-Mysteries/dp/B0DHT4L7MM/",
+    author: "© 2024 Howling Hills Publishing"
   },
   {
     id: "dan-baker",
@@ -85,7 +87,7 @@ const showcaseItems: ShowcaseItem[] = [
     type: "audio",
     externalLink: "https://shortstorytoday.com/search?s=83",
     externalLinkText: "Listen",
-    author: "© Doug Brown"
+    author: "© 2026 Short Story Today"
   }
 ];
 
@@ -174,26 +176,30 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
               )
             )}
 
-            {item.amazonLink ? (
+            {item.amazonLink && (
               <a href={item.amazonLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
                 <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
                   On Amazon
                 </Button>
               </a>
-            ) : item.externalLink ? (
+            )}
+
+            {item.externalLink && (
               <a href={item.externalLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
-                <Button variant="outline" className={`w-full border-primary/50 hover:bg-primary/10 font-cormorant text-lg h-12 ${item.type === 'audio' ? 'text-primary' : 'text-foreground'}`}>
+                <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
                   {item.externalLinkText || "Visit Link"}
                 </Button>
               </a>
-            ) : item.link ? (
+            )}
+
+            {item.link && !item.amazonLink && !item.externalLink && (
               <Link to={item.link} onClick={(e) => e.stopPropagation()} className="block w-full">
                 <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
                   <BookOpen className="w-4 h-4 mr-2" />
                   View Details
                 </Button>
               </Link>
-            ) : null}
+            )}
             
             <p className="font-cormorant text-sm text-center text-muted-foreground pt-4 border-t border-border/50">
               {item.copyright || item.author}

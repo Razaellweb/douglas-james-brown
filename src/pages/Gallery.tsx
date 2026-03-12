@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Maximize2, X } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 // Import all 10 images directly
 import doug1 from "../assets/doug/doug1.jpg";
@@ -47,7 +49,8 @@ const Gallery = () => {
   }, [selectedImage]);
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden flex flex-col pt-24 pb-20">
+    <div className="min-h-screen bg-background relative overflow-hidden flex flex-col pt-0 pb-0">
+      <Navbar />
       {/* Background Ambience */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[50vw] h-[50vh] bg-accent/5 rounded-full blur-[100px] opacity-50" />
@@ -55,22 +58,7 @@ const Gallery = () => {
         <div className="absolute inset-0 bg-noise opacity-[0.03]" />
       </div>
 
-      <div className="container relative z-10 max-w-7xl mx-auto px-6 flex-1">
-        {/* Header Navigation */}
-        <div className="mb-12 flex justify-between items-center animate-fade-in">
-          <Link 
-            to="/" 
-            className="group flex items-center gap-2 font-cormorant text-lg text-muted-foreground hover:text-primary transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            Back to Home
-          </Link>
-          
-          {/* <h1 className="font-cormorant text-2xl md:text-4xl text-foreground font-bold italic">
-            Author Gallery
-          </h1> */}
-        </div>
-
+      <div className="container relative z-10 max-w-7xl mx-auto px-6 flex-1 pt-32 pb-20">
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-auto">
           {photos.map((photo, index) => {
@@ -134,6 +122,8 @@ const Gallery = () => {
           </div>
         </div>
       )}
+      
+      <Footer />
     </div>
   );
 };
