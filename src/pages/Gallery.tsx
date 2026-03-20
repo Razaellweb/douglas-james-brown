@@ -15,6 +15,10 @@ import doug7 from "../assets/doug/doug7.jpg";
 import doug8 from "../assets/doug/doug8.jpg";
 import doug9 from "../assets/doug/doug9.jpg";
 import doug10 from "../assets/doug/doug10.jpg";
+import doug11 from "../assets/doug/doug11.jpg";
+import doug12 from "../assets/doug/doug12.jpg";
+import doug13 from "../assets/doug/doug13.jpg";
+import doug14 from "../assets/doug/doug14.jpg";
 
 const photos = [
   { src: doug1, alt: "Doug Brown Recent Photo 1" },
@@ -23,6 +27,10 @@ const photos = [
   { src: doug4, alt: "Doug Brown Photo 4" },
   { src: doug5, alt: "Doug Brown Photo 5" },
   { src: doug6, alt: "Doug Brown Photo 6" },
+  { src: doug11, alt: "Doug Brown Photo 11" },
+  { src: doug12, alt: "Doug Brown Photo 12" },
+  { src: doug14, alt: "Doug Brown Photo 14" },
+  { src: doug13, alt: "Doug Brown Photo 13" },
   { src: doug7, alt: "Doug Brown Photo 7" },
   { src: doug8, alt: "Doug Brown Photo 8" },
   { src: doug9, alt: "Doug Brown Photo 9" },

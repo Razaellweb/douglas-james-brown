@@ -10,6 +10,9 @@ const EditorialPraise = () => {
           <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-foreground">
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Acclaim</span>
           </h2>
+          <p className="font-cormorant text-xl text-zinc-400 max-w-2xl mx-auto italic">
+            What people have been saying . . .
+          </p>
         </div>
 
         {/* Blurbs container */}

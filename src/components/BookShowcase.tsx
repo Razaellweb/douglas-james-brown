@@ -225,9 +225,9 @@ const BookShowcase = () => {
           <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-primary">
             Bookshelf
           </h2>
-          {/* <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
-            Stories that expose the strangeness beneath the quaint ordinary
-          </p> */}
+          <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
+            Stories built on the secret you never tell.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

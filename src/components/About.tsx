@@ -21,6 +21,9 @@ const About = () => {
             <h2 className="font-cormorant text-5xl md:text-6xl font-bold text-primary">
               Author & Recluse
             </h2>
+            <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
+              Sightings continue to this day.
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
