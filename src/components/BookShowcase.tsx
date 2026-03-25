@@ -33,7 +33,8 @@ const showcaseItems: ShowcaseItem[] = [
     link: "/book/gladfind-and-other-monsters",
     author: "© Doug Brown",
     copyright: "© 2026 Doug Brown",
-    amazonLink: "https://www.amazon.com/Gladfind-Other-Monsters-Short-Collection-ebook/dp/B0GQP39DQL"
+    amazonLink: "https://www.amazon.com/Gladfind-Other-Monsters-Short-Collection-ebook/dp/B0GQP39DQL",
+    serifPressLink: "https://serifpress.com/2026/03/12/gladfind-and-other-monsters-by-doug-brown/"
   },
   {
     id: "mbb",
@@ -45,7 +46,7 @@ const showcaseItems: ShowcaseItem[] = [
     author: "© Doug Brown",
     copyright: "© 2023 Doug Brown",
     amazonLink: "https://www.amazon.com/My-Bohemian-Baptism-Then-Some-ebook/dp/B0CVFSDDP4",
-    serifPressLink: "https://serifpress.com/2023/11/14/my-bohemian-baptism-and-then-some-by-doug-brown/#more-150"
+    serifPressLink: "https://serifpress.com/2023/11/14/my-bohemian-baptism-and-then-some-by-doug-brown/"
   },
   {
     id: "halfandone",
@@ -225,7 +226,7 @@ const BookShowcase = () => {
           <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-primary">
             Bookshelf
           </h2>
-          <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
+          <p className="font-cormorant text-3xl md:text-4xl text-foreground/80 max-w-2xl mx-auto italic">
             Stories built on the secret you never tell.
           </p>
         </div>

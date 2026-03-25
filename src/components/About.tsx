@@ -18,10 +18,10 @@ const About = () => {
         <div className="space-y-16 animate-fade-in">
           {/* Section Header */}
           <div className="text-center space-y-6">
-            <h2 className="font-cormorant text-5xl md:text-6xl font-bold text-primary">
+            <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-primary">
               Author & Recluse
             </h2>
-            <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
+            <p className="font-cormorant text-3xl md:text-4xl text-foreground/80 max-w-2xl mx-auto italic">
               Sightings continue to this day.
             </p>
           </div>
@@ -65,7 +65,7 @@ const About = () => {
               <div className="relative group w-full max-w-sm">
                 <div className="absolute -inset-2 bg-gradient-gothic blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-xl" />
                 <div className="relative overflow-hidden rounded-xl border border-primary/20 shadow-lg transform rotate-[-2deg] hover:rotate-0 hover:z-10 transition-all duration-500 aspect-square">
-                  <img src={doug2} alt="Doug Brown reading" className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700" />
+                  <img src={doug2} alt="Doug Brown reading" className="w-full h-full object-cover object-top scale-105 group-hover:scale-100 transition-transform duration-700" />
                 </div>
               </div>
 

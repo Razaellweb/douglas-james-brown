@@ -10,7 +10,7 @@ const EditorialPraise = () => {
           <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-foreground">
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Acclaim</span>
           </h2>
-          <p className="font-cormorant text-xl text-zinc-400 max-w-2xl mx-auto italic">
+          <p className="font-cormorant text-3xl md:text-4xl text-zinc-400 max-w-2xl mx-auto italic">
             What people have been saying . . .
           </p>
         </div>
@@ -113,9 +113,9 @@ const EditorialPraise = () => {
         <div className="mt-16 md:mt-20">
           <div className="flex flex-col items-center gap-6 md:gap-8 animate-fade-in" style={{ animationDelay: '600ms' }}>
             {[
-              "2023 Khasi Hills Creative Prize for Fiction, Shortlist -- \"Cats\"",
-              "2022 GLOBE SOUP Short Story Competition, Honorable Mention -- \"Wendy Wafers Tart and Tangy\"",
-              "1984 Katie Lehman Award for Fiction, First Place -- \"Simple Brain Fever\"",
+              "2023 Khasi Hills Creative Prize for Fiction, Shortlist — \"Cats\"",
+              "2022 GLOBE SOUP Short Story Competition, Honorable Mention — \"Wendy Wafers Tart and Tangy\"",
+              "1984 Katie Lehman Award for Fiction, First Place — \"Simple Brain Fever\"",
             ].map((award, index) => (
               <div
                 key={index}

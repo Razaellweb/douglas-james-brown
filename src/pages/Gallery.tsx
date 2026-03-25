@@ -73,7 +73,7 @@ const Gallery = () => {
             // Determine sizing for masonry-like effect
             const isLarge = index === 0;
             const isWide = index === 3 || index === 7;
-            const isTall = index === 5 || index === 8;
+            const isTall = index === 8;
 
             return (
               <div 

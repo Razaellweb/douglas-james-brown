@@ -45,7 +45,7 @@ const FirstAppearances = () => {
           <h2 className="font-cormorant text-4xl md:text-6xl font-bold text-primary">
             First Appearances
           </h2>
-          <p className="font-cormorant text-xl text-foreground/80 max-w-2xl mx-auto italic">
+          <p className="font-cormorant text-3xl md:text-4xl text-foreground/80 max-w-2xl mx-auto italic">
             First Publication Credits
           </p>
         </div>
