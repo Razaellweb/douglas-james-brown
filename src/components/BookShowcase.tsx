@@ -59,18 +59,6 @@ const showcaseItems: ShowcaseItem[] = [
     serifPressLink: "https://serifpress.com/2023/11/14/my-bohemian-baptism-and-then-some-by-doug-brown/"
   },
   {
-    id: "halfandone",
-    title: "Half and One Magazine",
-    subtitle: "Vol 1, Issue 1",
-    description: "Featuring the acclaimed short story \"Cats\".",
-    type: "magazine",
-    coverUrl: halfAndOneCover,
-    externalLink: "https://halfandone.com/wp-content/uploads/2025/10/Half-And-One-Magazine-Vol1-Iss1.pdf",
-    externalLinkText: "On Half and One",
-    amazonLink: "#",
-    author: "© Doug Brown"
-  },
-  {
     id: "24tales",
     title: "24 Tales: More Appalachian Ghost Stories, Legends & Mysteries",
     subtitle: "From Howling Hills Publishing",
@@ -186,9 +174,14 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
 
           <div className="relative z-10 mt-auto pt-6 space-y-3">
             {item.comingSoon ? (
-              <Button disabled variant="outline" className="w-full border-primary/30 text-primary/70 font-cormorant text-lg h-12 bg-transparent opacity-80 cursor-not-allowed">
-                Anticipated Release
-              </Button>
+              <>
+                <Button disabled variant="outline" className="w-full border-primary/30 text-primary/70 font-cormorant text-lg h-12 bg-transparent opacity-80 cursor-not-allowed">
+                  Coming Soon from Half and One
+                </Button>
+                <Button disabled variant="outline" className="w-full border-primary/30 text-primary/70 font-cormorant text-lg h-12 bg-transparent opacity-80 cursor-not-allowed">
+                  Available Soon on Amazon
+                </Button>
+              </>
             ) : (
               <>
                 {item.type === 'book' && (
