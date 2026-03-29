@@ -20,9 +20,19 @@ interface ShowcaseItem {
   copyright?: string;
   amazonLink?: string;
   serifPressLink?: string;
+  comingSoon?: boolean;
 }
 
 const showcaseItems: ShowcaseItem[] = [
+  {
+    id: "halfandone-3",
+    title: "Half and One Magazine",
+    subtitle: "Vol 1, Issue 3",
+    description: "Featuring the acclaimed short story \"Cats\".",
+    type: "magazine",
+    comingSoon: true,
+    author: "© Doug Brown",
+  },
   {
     id: "gladfind",
     title: "Gladfind and Other Monsters",
@@ -51,11 +61,11 @@ const showcaseItems: ShowcaseItem[] = [
   {
     id: "halfandone",
     title: "Half and One Magazine",
-    subtitle: "Vol 1, Issue 3",
+    subtitle: "Vol 1, Issue 1",
     description: "Featuring the acclaimed short story \"Cats\".",
     type: "magazine",
     coverUrl: halfAndOneCover,
-    externalLink: "https://halfandone.com/wp-content/uploads/2025/10/Half-And-One-Magazine-Vol1-Iss3.pdf",
+    externalLink: "https://halfandone.com/wp-content/uploads/2025/10/Half-And-One-Magazine-Vol1-Iss1.pdf",
     externalLinkText: "On Half and One",
     amazonLink: "#",
     author: "© Doug Brown"
@@ -133,9 +143,21 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 flex flex-col items-center justify-center p-8 text-center group-hover:from-primary/30 group-hover:to-secondary/30 transition-colors duration-500 rounded-xl">
               <div className="absolute inset-0 bg-gradient-gothic opacity-30 mix-blend-overlay rounded-xl" />
               <div className="relative z-10 w-24 h-24 rounded-full bg-background/50 backdrop-blur-sm border border-primary/30 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(var(--primary),0.2)]">
-                <Headphones className="w-12 h-12 text-primary" />
+                {item.type === 'audio' ? (
+                  <Headphones className="w-12 h-12 text-primary" />
+                ) : (
+                  <BookOpen className="w-12 h-12 text-primary" />
+                )}
               </div>
               <h3 className="relative z-10 font-cinzel text-2xl font-bold text-foreground max-w-[80%]">{item.title}</h3>
+              {item.subtitle && (
+                <p className="relative z-10 font-cormorant text-base text-foreground/70 italic mt-2 lowercase">{item.subtitle}</p>
+              )}
+              {item.comingSoon && (
+                <div className="relative z-10 mt-6 px-4 py-1.5 rounded-full border border-primary/40 bg-primary/10 backdrop-blur-sm">
+                  <span className="font-cinzel text-sm text-primary tracking-widest uppercase">Coming Soon</span>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -163,43 +185,51 @@ const FlipCard = ({ item }: { item: ShowcaseItem }) => {
           </div>
 
           <div className="relative z-10 mt-auto pt-6 space-y-3">
-            {item.type === 'book' && (
-              item.serifPressLink ? (
-                <a href={item.serifPressLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
-                  <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
-                    On Serif Press
-                  </Button>
-                </a>
-              ) : (
-                <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
-                  On Serif Press
-                </Button>
-              )
-            )}
+            {item.comingSoon ? (
+              <Button disabled variant="outline" className="w-full border-primary/30 text-primary/70 font-cormorant text-lg h-12 bg-transparent opacity-80 cursor-not-allowed">
+                Anticipated Release
+              </Button>
+            ) : (
+              <>
+                {item.type === 'book' && (
+                  item.serifPressLink ? (
+                    <a href={item.serifPressLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
+                      <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
+                        On Serif Press
+                      </Button>
+                    </a>
+                  ) : (
+                    <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
+                      On Serif Press
+                    </Button>
+                  )
+                )}
 
-            {item.amazonLink && (
-              <a href={item.amazonLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
-                <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
-                  On Amazon
-                </Button>
-              </a>
-            )}
+                {item.amazonLink && (
+                  <a href={item.amazonLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
+                    <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
+                      On Amazon
+                    </Button>
+                  </a>
+                )}
 
-            {item.externalLink && (
-              <a href={item.externalLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
-                <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
-                  {item.externalLinkText || "Visit Link"}
-                </Button>
-              </a>
-            )}
+                {item.externalLink && (
+                  <a href={item.externalLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="block w-full">
+                    <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
+                      {item.externalLinkText || "Visit Link"}
+                    </Button>
+                  </a>
+                )}
 
-            {item.link && !item.amazonLink && !item.externalLink && (
-              <Link to={item.link} onClick={(e) => e.stopPropagation()} className="block w-full">
-                <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
-                  <BookOpen className="w-4 h-4 mr-2" />
-                  View Details
-                </Button>
-              </Link>
+                {item.link && !item.amazonLink && !item.externalLink && (
+                  <Link to={item.link} onClick={(e) => e.stopPropagation()} className="block w-full">
+                    <Button className="w-full bg-primary hover:bg-accent text-primary-foreground font-cormorant text-lg h-12">
+                      <BookOpen className="w-4 h-4 mr-2" />
+                      View Details
+                    </Button>
+                  </Link>
+                )}
+              </>
             )}
             
             <p className="font-cormorant text-sm text-center text-muted-foreground pt-4 border-t border-border/50">

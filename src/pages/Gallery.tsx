@@ -19,20 +19,20 @@ import doug13 from "../assets/doug/doug13.jpg";
 import doug14 from "../assets/doug/doug14.jpg";
 
 const photos = [
-  { src: doug1, alt: "Doug Brown Recent Photo 1" },
-  { src: doug2, alt: "Doug Brown Recent Photo 2" },
   { src: doug3, alt: "Doug Brown Recent Photo 3" },
+  { src: doug2, alt: "Doug Brown Recent Photo 2" },
   { src: doug4, alt: "Doug Brown Photo 4" },
-  { src: doug5, alt: "Doug Brown Photo 5" },
-  { src: doug6, alt: "Doug Brown Photo 6" },
   { src: doug11, alt: "Doug Brown Photo 11" },
   { src: doug12, alt: "Doug Brown Photo 12" },
+  { src: doug1, alt: "Doug Brown Recent Photo 1" },
   { src: doug14, alt: "Doug Brown Photo 14" },
   { src: doug13, alt: "Doug Brown Photo 13" },
   { src: doug7, alt: "Doug Brown Photo 7" },
+  { src: doug5, alt: "Doug Brown Photo 5" },
   { src: doug8, alt: "Doug Brown Photo 8" },
-  { src: doug9, alt: "Doug Brown Photo 9" },
+  { src: doug6, alt: "Doug Brown Photo 6" },
   { src: doug10, alt: "Doug Brown Earliest Photo" },
+  { src: doug9, alt: "Doug Brown Photo 9" },
 ];
 
 // Split into 3 columns for a true masonry layout
@@ -82,30 +82,28 @@ const Gallery = () => {
       </div>
 
       <div className="container relative z-10 max-w-6xl mx-auto px-6 flex-1 pt-32 pb-20">
-        {/* True masonry — CSS columns, images retain natural aspect ratio */}
-        <div
-          className="gap-4"
-          style={{
-            columnCount: columns,
-            columnGap: "1rem",
-          }}
-        >
-          {photos.map((photo, index) => (
-            <div
-              key={index}
-              className="group relative rounded-xl overflow-hidden cursor-pointer mb-4 border border-border/50 bg-muted/20 break-inside-avoid animate-fade-in"
-              style={{ animationDelay: `${index * 80}ms` }}
-              onClick={() => setSelectedImage(photo.src)}
-            >
-              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-[2px]">
-                <Maximize2 className="text-primary-foreground w-8 h-8 drop-shadow-md" />
-              </div>
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                loading={index < 6 ? "eager" : "lazy"}
-              />
+        {/* True masonry — Flex columns, images retain natural aspect ratio and left-to-right reading order */}
+        <div className="flex w-full gap-4 items-start">
+          {cols.map((col, colIndex) => (
+            <div key={colIndex} className="flex flex-col gap-4 flex-1">
+              {col.map((photo, index) => (
+                <div
+                  key={`${colIndex}-${index}`}
+                  className="group relative rounded-xl overflow-hidden cursor-pointer border border-border/50 bg-muted/20 animate-fade-in"
+                  style={{ animationDelay: `${(colIndex * col.length + index) * 80}ms` }}
+                  onClick={() => setSelectedImage(photo.src)}
+                >
+                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-[2px]">
+                    <Maximize2 className="text-primary-foreground w-8 h-8 drop-shadow-md" />
+                  </div>
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+                    loading={index < 6 ? "eager" : "lazy"}
+                  />
+                </div>
+              ))}
             </div>
           ))}
         </div>
