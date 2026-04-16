@@ -25,15 +25,6 @@ interface ShowcaseItem {
 
 const showcaseItems: ShowcaseItem[] = [
   {
-    id: "halfandone-3",
-    title: "Half and One Magazine",
-    subtitle: "Vol 1, Issue 3",
-    description: "Featuring the acclaimed short story \"Cats\".",
-    type: "magazine",
-    comingSoon: true,
-    author: "© Doug Brown",
-  },
-  {
     id: "gladfind",
     title: "Gladfind and Other Monsters",
     subtitle: "A Short Story Collection",
@@ -87,6 +78,15 @@ const showcaseItems: ShowcaseItem[] = [
     externalLink: "https://shortstorytoday.com/search?s=83",
     externalLinkText: "Listen",
     author: "© 2026 Short Story Today"
+  },
+    {
+    id: "halfandone-3",
+    title: "Half and One Magazine",
+    subtitle: "Vol 1, Issue 3",
+    description: "Featuring the acclaimed short story \"Cats\".",
+    type: "magazine",
+    comingSoon: true,
+    author: "© Doug Brown",
   }
 ];
 
